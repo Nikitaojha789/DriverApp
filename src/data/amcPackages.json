@@ -1,0 +1,40 @@
+{
+  "packages": [
+    {
+      "id": "1",
+      "title": "Premium AMC Special",
+      "coverage": "12 Months Coverage",
+      "originalPrice": 9999,
+      "discountedPrice": 6999,
+      "imageUri": "https://images.unsplash.com/photo-1509391366360-2e959784e276?w=400",
+      "badge": null
+    },
+    {
+      "id": "2",
+      "title": "Basic AMC Bundle",
+      "coverage": "6 Months Coverage",
+      "originalPrice": 4999,
+      "discountedPrice": 3499,
+      "imageUri": "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=400",
+      "badge": {
+        "text": "Recommended",
+        "color": "#FFFFFF",
+        "backgroundColor": "#00A63E"
+      }
+    },
+    {
+      "id": "3",
+      "title": "Enterprise Bundle",
+      "coverage": "Full Year + Extras",
+      "originalPrice": 24000,
+      "discountedPrice": 19999,
+      "imageUri": "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=400",
+      "badge": {
+        "text": "Best Value",
+        "color": "#FFFFFF",
+        "backgroundColor": "#FF9800"
+      }
+    }
+  ]
+}
+

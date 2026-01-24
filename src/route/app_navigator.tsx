@@ -8,15 +8,17 @@ const Stack = createStackNavigator();
 export const MarketingNavigator = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name={routeNames.Welcome} component={Screen.Welcome} />
       <Stack.Screen name={routeNames.marketing} component={Screen.Marketing} />
     </Stack.Navigator>
   );
 };
 export const AuthNavigator = () => {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name={routeNames.login} component={Screen.Login} />
+    <Stack.Navigator initialRouteName='ProfileRegistration' screenOptions={{ headerShown: false }}>
+      <Stack.Screen name={routeNames.SignUp} component={Screen.SignUp} />
+                  <Stack.Screen name={routeNames.ProfileRegistration} component={Screen.ProfileRegistration} />
+            <Stack.Screen name={routeNames.OtpScreen} component={Screen.OtpScreen} />
+
     </Stack.Navigator>
   );
 };

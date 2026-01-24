@@ -18,4 +18,19 @@ export class AppNavigation {
       navigationRef?.navigate('Register');
     }
   };
+  static navigateToOtp = (params: {phone: string}) => {
+    if (navigationRef.isReady()) {
+      navigationRef.navigate(routeNames.OtpScreen, params);
+    }
+  };
+  static navigateToHome = () => {
+    if (navigationRef.isReady()) {
+      navigationRef?.navigate('home');
+    }
+  };
+  static navigateToProfileRegistration = () => {
+    if (navigationRef.isReady()) {
+      navigationRef?.navigate('ProfileRegistration');
+    }
+  };
 }

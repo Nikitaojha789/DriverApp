@@ -1,7 +1,7 @@
 // This component defines three types of buttons: AppIconButton, AppButton, and SmallButton,
 // with various customizable properties such as title, onPress function, styles, and activity indicator.
 
-import React, {memo} from 'react';
+import React, {JSX, memo} from 'react';
 import {ActivityIndicator, TouchableOpacity} from 'react-native';
 import {colors} from '../constant/color';
 import {TouchableButton} from './button/TouchableButton';
@@ -43,6 +43,7 @@ export const AppButton = memo(
     height = 50,
     borderColor = colors.white,
     borderedTextColor = colors.white,
+    textColor = colors.white,
   }: appButtonProps) => {
     return (
       <TouchableButton
@@ -54,7 +55,7 @@ export const AppButton = memo(
           alignItems: 'center',
           justifyContent: 'center',
           backgroundColor: disabled
-            ? colors.lightGray
+            ? colors.white
             : isBorder
             ? 'transparent'
             : bgColor,
@@ -63,6 +64,7 @@ export const AppButton = memo(
           borderWidth: 1,
           borderColor: isBorder ? borderColor : 'transparent',
           alignSelf: 'center',
+          
         }}>
         {activity ? (
           <>
@@ -72,7 +74,7 @@ export const AppButton = memo(
             />
           </>
         ) : (
-          <ButtonText primary={primary} title={title} />
+          <ButtonText primary={primary} title={title} color={textColor} />
         )}
       </TouchableButton>
     );

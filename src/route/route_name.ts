@@ -1,5 +1,5 @@
 export const routeNames = {
-  login: 'login',
+  SignUp: 'SignUp',
   Register: 'Register',
   OtpScreen: 'OtpScreen',
   ResetPassword: 'ResetPassword',
@@ -9,4 +9,5 @@ export const routeNames = {
   bottomTabNavigator: 'BottomTabNavigator',
   home: 'home',
   Profile: 'Profile',
-};
+  ProfileRegistration:'ProfileRegistration',
+}as const;

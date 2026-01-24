@@ -71,6 +71,7 @@ export const fontSize = {
   medium: 18,
   largeMedium: 20,
   veryLarge: 24,
+  largeDefault:28,
   extraLarge: 30,
 };
 
@@ -84,8 +85,9 @@ export const MarketingTitleStyle = {
   fontSize: fontSize.extraLarge,
   color: colors.white,
   fontFamily: fonts.bold,
-  textAlign: 'center',
+  textAlign: 'center' as const,
 };
+
 export const MarketingDesriptionStyle = {
   fontSize: 15,
   color: colors.white,

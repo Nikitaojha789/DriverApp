@@ -1,10 +1,10 @@
 import * as Icons from './icons/icons';
 
 const fonts = {
-  regular: 'Lato-Regular',
-  medium: 'Lato-Medium',
-  bold: 'Lato-Bold',
-  semiBold: 'Lato-Semibold',
+  regular: 'Poppins-Regular',
+  medium: 'Poppins-Medium',
+  bold: 'Poppins-Bold',
+  semiBold: 'Poppins-SemiBold',
 };
 
 export {Icons, fonts};

@@ -19,7 +19,7 @@ import {AppTxt, RequiredText} from './AppHeading';
 import {spacer} from '../constant/dimension';
 import {fonts} from '../asset';
 import {ErrorMsg} from './ErrorMsg';
-import {countryCodeStyle, inputLabelStyle} from '../asset/style/commonStyle';
+import {countryCodeStyle, fontSize, inputLabelStyle} from '../asset/style/commonStyle';
 
 // Define the properties that the AppInput component accepts
 export interface appTextInputProps extends TextInputProps {
@@ -178,6 +178,9 @@ export const AppInput = memo(
             <AppTxt
               title={label}
               style={{...inputLabelStyle, marginVertical: 10}}
+              color={colors.textColor}          
+    fontFamily={fonts.medium}  
+    fontSize={fontSize.normal }
             />
             {
           isRequired && (

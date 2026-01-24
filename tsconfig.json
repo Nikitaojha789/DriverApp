@@ -3,6 +3,6 @@
   "compilerOptions": {
     "types": ["jest"],
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "src/screen/auth/ProfileVerification/style.js"],
   "exclude": ["**/node_modules", "**/Pods"]
 }

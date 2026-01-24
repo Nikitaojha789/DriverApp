@@ -67,7 +67,6 @@ export const AppText = ({
   title,
   color = colors.white,
   fontSize = 14,
-  fontWeight = '500',
   style,
   isCapitalize,
   textTransform = 'none',
@@ -79,15 +78,15 @@ export const AppText = ({
   return (
     <Text
       onPress={onPress}
-      style={{
+      style={[{
         color,
         fontSize,
-        // fontWeight,
         fontFamily,
         textTransform: isCapitalize ? 'capitalize' : textTransform,
         ...style,
         textAlign: center ? 'center' : 'left',
-      }}
+      },
+    style,]}
       numberOfLines={numberOfLines}>
       {title}
     </Text>
@@ -167,6 +166,7 @@ export const ButtonText = ({
   numberOfLines,
   onPress,
   primary = false,
+  color = colors.white, 
 }: appHeadingProps) => {
   return (
     <Text
@@ -174,6 +174,9 @@ export const ButtonText = ({
       style={{
         textTransform: isCapitalize ? 'capitalize' : textTransform,
         ...(primary ? whiteButtonTextStyle : blueButtonTextStyle),
+        color: color,
+        fontFamily:fonts.medium,
+        fontSize:fontSize.default,
       }}
       numberOfLines={numberOfLines}>
       {title}

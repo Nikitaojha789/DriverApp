@@ -3,6 +3,7 @@ import {ActivityIndicator} from 'react-native';
 import {AppText} from '../AppHeading';
 import {colors} from '../../constant/color';
 import {TouchableButton} from './TouchableButton';
+import { width } from '../../asset/style/commonStyle';
 
 interface appButtonProps {
   title: string;
@@ -11,6 +12,8 @@ interface appButtonProps {
   activity?: boolean;
   disabled?: boolean;
   height?: number;
+  width?: number;
+  variant?: 'solid' | 'text'; 
 }
 
 export const AppButton = ({
@@ -20,14 +23,22 @@ export const AppButton = ({
   activity,
   disabled,
   height = 50,
+  width=80,
+  variant = 'solid',
 }: appButtonProps) => {
   return (
     <TouchableButton
       onPress={onPress}
       disabled={activity || disabled}
       style={{
+        width:width,
         height: height,
-        backgroundColor: disabled ? colors.placeholder : backgroundColor,
+       backgroundColor:
+          variant === 'text'
+            ? 'transparent'
+            : disabled
+            ? colors.placeholder
+            : backgroundColor,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 10,

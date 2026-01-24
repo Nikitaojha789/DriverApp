@@ -24,6 +24,8 @@ export type RootStackParamList = {
   Notificaion: undefined;
   BookingDetail: {item: any};
   Availability: undefined;
+  ProfileRegistration:undefined;
+  home:undefined;
   // ... other routes
 };
 

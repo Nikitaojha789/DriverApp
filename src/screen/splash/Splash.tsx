@@ -9,7 +9,7 @@ const Splash = () => {
 
   useEffect(() => {
     intervalRef.current = setInterval(() => {
-      setAppStatus(appStatusTypes.market);
+      setAppStatus(appStatusTypes.auth);
     }, 4000);
 
     return () => {

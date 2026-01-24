@@ -18,7 +18,7 @@ export const colors = {
   rating: '#FFBA49',
   offWhite: 'rgba(255, 255, 255, 1)',
   textColor: '#2B2B2B',
-  purple:'5C2E92',
+  purple:'#5C2E92',
   inputBorder: '#E6DDF1',
   inputLabelColor: '#676262',
   darkGray: '#86889A',

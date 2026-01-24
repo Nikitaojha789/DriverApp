@@ -3,7 +3,8 @@ import {ActivityIndicator} from 'react-native';
 import {AppText} from '../AppHeading';
 import {colors} from '../../constant/color';
 import {TouchableButton} from './TouchableButton';
-import { width } from '../../asset/style/commonStyle';
+import { fontSize, width } from '../../asset/style/commonStyle';
+import { fonts } from '../../asset';
 
 interface appButtonProps {
   title: string;
@@ -14,9 +15,15 @@ interface appButtonProps {
   height?: number;
   width?: number;
   variant?: 'solid' | 'text'; 
+  fontsize?:number;
+  fontfamily?:string;
+  color?:string;
 }
 
 export const AppButton = ({
+  color=colors.black,
+  fontfamily = fonts.bold,
+  fontsize = fontSize.default,
   title,
   backgroundColor = colors.secondary,
   onPress,
@@ -46,7 +53,7 @@ export const AppButton = ({
       {activity ? (
         <ActivityIndicator color={colors.white} />
       ) : (
-        <AppText color={colors.black} title={title} fontSize={16} />
+        <AppText color={color} title={title} fontSize={fontsize} fontFamily={fontfamily}/>
       )}
     </TouchableButton>
   );

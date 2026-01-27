@@ -1,4 +1,4 @@
-package com.vendorapp
+package com.DriverApp
 
 import android.app.Application
 import com.facebook.react.PackageList

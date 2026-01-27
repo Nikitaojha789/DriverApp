@@ -5,8 +5,14 @@ import { BankDetails } from '../../components/Profile/BankDetails'
 import { AppContainer } from '../../components/AppContainer'
 import { ProfileHeader } from '../../components/ProfileHeader'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { View } from 'react-native'
+import { ScrollView, StyleSheet, View } from 'react-native'
 import { colors } from '../../constant/color'
+import { AppInput } from '../../components/AppInput'
+import { h } from '../../constant/dimension'
+import { CalendarIcon, CardIcon } from '../../asset/icons/authIcon'
+import { CameraInput } from '../../components/CameraInput'
+import { fonts } from '../../asset'
+import { fontSize } from '../../asset/style/commonStyle'
 
 
 const ProfileVerification = () => {
@@ -31,16 +37,31 @@ const ProfileVerification = () => {
 
   return (
     <SafeAreaView style={{flex:1}}>
+      
     <AppContainer>
+<ScrollView
+  style={{ flex: 1 }}
+  contentContainerStyle={{ paddingBottom: 40 }}
+  showsVerticalScrollIndicator={false}
+>
+  
       <ProfileHeader step={step} onBack={() => {
     if (step > 1) {
       setStep(prev => (prev - 1) as 1 | 2 | 3)
     }}}/>
       {renderStep()}
+       
+      </ScrollView>
     </AppContainer>
     
     </SafeAreaView>
   )
 }
 
-export default ProfileVerification
+export default ProfileVerification;
+
+const styles = StyleSheet.create({
+
+
+})
+

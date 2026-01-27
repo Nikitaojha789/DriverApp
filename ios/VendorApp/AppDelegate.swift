@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window = UIWindow(frame: UIScreen.main.bounds)
 
     factory.startReactNative(
-      withModuleName: "VendorApp",
+      withModuleName: "DriverApp",
       in: window,
       launchOptions: launchOptions
     )

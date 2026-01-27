@@ -177,10 +177,11 @@ export const AppInput = memo(
         /> */}
             <AppTxt
               title={label}
-              style={{...inputLabelStyle, marginVertical: 10}}
+              style={{...inputLabelStyle, marginVertical: 10,}}
               color={colors.textColor}          
-    fontFamily={fonts.medium}  
-    fontSize={fontSize.normal }
+    fontFamily={fonts.regular}  
+    fontSize={fontSize.default }
+    
             />
             {
           isRequired && (
@@ -210,6 +211,7 @@ export const AppInput = memo(
               borderWidth: error ? 1 : isBorder ? 0.5 : 0,
               borderColor: colors.borderColor,
               backgroundColor: backgroundColor,
+               ...style,
             }}>
             {countryCode ? (
               <TouchableButton
@@ -278,7 +280,7 @@ export const AppInput = memo(
                       ? 30
                       : Platform.OS === 'ios'
                       ? 0
-                      : 10,
+                      : 6,
                     ...textStyle,
                   },
                   isDescription ? {paddingTop: isDescription ? spacer : 0} : {},

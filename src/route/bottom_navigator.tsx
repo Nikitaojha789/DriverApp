@@ -26,10 +26,6 @@ const getTabIcons = (routeName: string, isActive: boolean) => {
   switch (routeName) {
     case routeNames.home:
       return <HomeSvg color={iconColor} size={24} />;
-    case routeNames.AMCPackages:
-      return <ExploreSvg color={iconColor} size={24} />;
-    case routeNames.Orders:
-      return <WalletSvg color={iconColor} size={24} />;
     case routeNames.Profile:
       return <ProfileSvg color={iconColor} size={24} />;
     default:

@@ -5,20 +5,11 @@ import {
   TouchableOpacity,
   Modal,
   Text,
-  Alert,
 } from 'react-native'
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker'
 import { AppText } from './AppHeading'
 import { CameraIcon } from '../asset/icons/authIcon'
 import { colors } from '../constant/color'
-
-type Props = {
-  title: string
-  titleColor?: string
-  titleFontSize?: number
-  titleFontFamily?: string
-  onImagePicked?: (uri: string) => void
-}
 
 export const CameraInput = ({
   title,
@@ -26,41 +17,108 @@ export const CameraInput = ({
   titleFontSize = 14,
   titleFontFamily,
   onImagePicked,
-}: Props) => {
+  error,
+  fileName,
+}: any) => {
   const [visible, setVisible] = useState(false)
+  const [image, setImage] = useState(false);
 
-  const openCamera = async () => {
-    setVisible(false)
-    const result = await launchCamera({
-      mediaType: 'photo',
-      quality: 0.7,
-      saveToPhotos: true,
+  const log = (...args: any[]) => {
+    console.log('[CameraInput]', ...args)
+  }
+
+  const handleResponse = (result: any, source: 'camera' | 'gallery') => {
+    log(`${source} result:`, result)
+
+    if (result.didCancel) {
+      log(`${source} cancelled by user`)
+      return
+    }
+
+    if (result.errorCode) {
+      console.error(
+        `[CameraInput ERROR] ${source}`,
+        result.errorCode,
+        result.errorMessage,
+      )
+      return
+    }
+
+    const asset = result.assets?.[0]
+    if (!asset?.uri) {
+      console.warn(`${source} returned no image`)
+      return
+    }
+
+    log(`${source} success`, {
+      uri: asset.uri,
+      fileName: asset.fileName,
+      type: asset.type,
+      size: asset.fileSize,
     })
 
-    if (!result.didCancel && result.assets?.[0]?.uri) {
-      onImagePicked?.(result.assets[0].uri)
+onImagePicked?.({
+  uri: asset.uri,
+  fileName: asset.fileName || 'Selected image',
+});
+  }
+
+  const openCamera = async () => {
+    log('Opening camera')
+    setVisible(false)
+     
+
+    try {
+      const result = await launchCamera({
+        mediaType: 'photo',
+        quality: 0.7,
+        saveToPhotos: true,
+      })
+
+      handleResponse(result, 'camera')
+    } catch (err) {
+      console.error('[CameraInput CRASH] camera', err)
     }
   }
 
   const openGallery = async () => {
+    log('Opening gallery')
     setVisible(false)
-    const result = await launchImageLibrary({
-      mediaType: 'photo',
-      quality: 0.7,
-      selectionLimit: 1,
-    })
 
-    if (!result.didCancel && result.assets?.[0]?.uri) {
-      onImagePicked?.(result.assets[0].uri)
+    try {
+      const result = await launchImageLibrary({
+        mediaType: 'photo',
+        quality: 0.7,
+        selectionLimit: 1,
+      })
+
+      handleResponse(result, 'gallery')
+    } catch (err) {
+      console.error('[CameraInput CRASH] gallery', err)
     }
   }
 
+
   return (
     <>
+    {fileName? 
+(
+  <View style={styles.Imagecontainer}>
+        <AppText
+          title={fileName}
+          color={titleColor}
+          fontSize={titleFontSize}
+          fontFamily={titleFontFamily}
+        />
+        </View>
+      ):(
       <TouchableOpacity
         activeOpacity={0.7}
         style={styles.container}
-        onPress={() => setVisible(true)}
+        onPress={() => {
+          log('CameraInput pressed')
+          setVisible(true)
+        }}
       >
         <CameraIcon />
         <AppText
@@ -70,18 +128,30 @@ export const CameraInput = ({
           fontFamily={titleFontFamily}
         />
       </TouchableOpacity>
+     )  
+      }
+      {error ? (
+  <AppText style={styles.errorText}
+    title={error}/> 
+    ) : null}
 
-      {/* MODAL */}
+
       <Modal
         transparent
         animationType="fade"
         visible={visible}
-        onRequestClose={() => setVisible(false)}
+        onRequestClose={() => {
+          log('Modal closed via back button')
+          setVisible(false)
+        }}
       >
         <TouchableOpacity
           style={styles.overlay}
           activeOpacity={1}
-          onPress={() => setVisible(false)}
+          onPress={() => {
+            log('Modal dismissed by tapping outside')
+            setVisible(false)
+          }}
         >
           <View style={styles.modal}>
             <TouchableOpacity style={styles.option} onPress={openCamera}>
@@ -94,9 +164,14 @@ export const CameraInput = ({
 
             <TouchableOpacity
               style={[styles.option, styles.cancel]}
-              onPress={() => setVisible(false)}
+              onPress={() => {
+                log('Modal cancelled manually')
+                setVisible(false)
+              }}
             >
-              <Text style={[styles.optionText, { color: 'red' }]}>Cancel</Text>
+              <Text style={[styles.optionText, { color: 'red' }]}>
+                Cancel
+              </Text>
             </TouchableOpacity>
           </View>
         </TouchableOpacity>
@@ -115,6 +190,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     gap: 8,
+  },
+  Imagecontainer:{
+    borderWidth: 1,
+    borderColor: '#8e8e8e47',
+    padding: 16,
+    borderRadius: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   overlay: {
     flex: 1,
@@ -140,4 +223,10 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderColor: '#eee',
   },
+  errorText: {
+  color: colors.red,
+  fontSize: 12,
+  textAlign: 'center',
+},
+
 })

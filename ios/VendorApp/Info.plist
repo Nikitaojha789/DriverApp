@@ -6,8 +6,8 @@
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-<string>Camera access is required to upload documents</string>
-<key>NSPhotoLibraryUsageDescription</key>
+<!-- <string>Camera access is required to upload documents</string>
+<key>NSPhotoLibraryUsageDescription</key> -->
 <string>Gallery access is required to upload documents</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>

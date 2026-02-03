@@ -19,6 +19,7 @@ export const colors = {
   offWhite: 'rgba(255, 255, 255, 1)',
   textColor: '#2B2B2B',
   purple:'#5C2E92',
+  darkPurple:'#3E1F63',
   inputBorder: '#E6DDF1',
   inputLabelColor: '#676262',
   darkGray: '#86889A',

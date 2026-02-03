@@ -65,7 +65,7 @@ export const AppHeading = ({
 
 export const AppText = ({
   title,
-  color = colors.white,
+  color = colors.black,
   fontSize = 14,
   style,
   isCapitalize,

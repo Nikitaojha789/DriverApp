@@ -1,37 +1,40 @@
 import * as Screen from '../screen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {routeNames} from './route_name';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Text} from 'react-native';
 import type {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 import React, {ReactNode} from 'react';
 import {colors} from '../constant/color';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {TouchableButton} from '../components/button/TouchableButton';
-import {
-  ExploreSvg,
-  HomeSvg,
-  ProfileSvg,
-  WalletSvg,
-} from '../asset/icons/icons';
+import { h, w } from '../constant/dimension';
+import { EarningTabIcon, HomeTabIcon, OrdesTabIcon } from '../asset/icons/HomeIcon';
+import { fontSize } from '../asset/style/commonStyle';
+import { fonts } from '../asset';
+import { AppText } from '../components/AppHeading';
 
 const Tab = createBottomTabNavigator();
 
 // Active icon: green (primary color)
 // Inactive icon: black
-const activeColor = colors.primary; // Green for active state
-const inActiveColor = colors.black; // Black for inactive state
+// const activeColor = colors.white; // Green for active state
+// const inActiveColor = colors.purple; // Black for inactive state
 
 const getTabIcons = (routeName: string, isActive: boolean) => {
-  const iconColor = isActive ? activeColor : inActiveColor;
+  const iconColor = isActive ? colors.white : colors.purple;
+
   switch (routeName) {
     case routeNames.home:
-      return <HomeSvg color={iconColor} size={24} />;
-    case routeNames.Profile:
-      return <ProfileSvg color={iconColor} size={24} />;
+      return <HomeTabIcon color={iconColor} />;
+    case routeNames.OrderScreen:
+      return <OrdesTabIcon color={iconColor} />;
+    case routeNames.EarningScreen:
+      return <EarningTabIcon color={iconColor} />;
     default:
       return null;
   }
 };
+
 
 interface tabProps {
   icon?: ReactNode;
@@ -40,28 +43,40 @@ interface tabProps {
   accessibilityState?: {selected?: boolean};
   accessibilityLabel?: string;
   testID?: string;
+    isFocused?: boolean;
+     label?: string;
 }
 
 const TabButton = ({
   icon,
+  label,
+  isFocused,
   onPress,
   onLongPress,
-  accessibilityState,
-  accessibilityLabel,
-  testID,
 }: tabProps) => {
   return (
     <TouchableButton
       onPress={onPress}
       onLongPress={onLongPress}
       style={styles.tabButton}
-      accessibilityState={accessibilityState}
-      accessibilityLabel={accessibilityLabel}
-      testID={testID}>
-      <View style={styles.iconContainer}>{icon}</View>
+    >
+      <View
+        style={[
+          styles.iconContainer,
+          isFocused && styles.activeTab,
+        ]}
+      >
+        {icon}
+
+        {isFocused && (
+          <AppText title={label || ''} fontSize={fontSize.normal}
+  fontFamily={fonts.medium} color={colors.white} style={styles.tabLabel}/>
+        )}
+      </View>
     </TouchableButton>
   );
 };
+
 
 const BottomTabBar = ({state, descriptors, navigation}: BottomTabBarProps) => {
   const insets = useSafeAreaInsets();
@@ -95,14 +110,14 @@ const BottomTabBar = ({state, descriptors, navigation}: BottomTabBarProps) => {
 
           return (
             <TabButton
-              key={route.key}
-              icon={getTabIcons(route.name, isFocused)}
-              onPress={onPress}
-              onLongPress={onLongPress}
-              accessibilityState={isFocused ? {selected: true} : {}}
-              accessibilityLabel={options.tabBarAccessibilityLabel}
-              testID={options.tabBarButtonTestID}
-            />
+  key={route.key}
+  icon={getTabIcons(route.name, isFocused)}
+  label={route.name}
+  isFocused={isFocused}
+  onPress={onPress}
+  onLongPress={onLongPress}
+/>
+
           );
         })}
       </View>
@@ -119,9 +134,8 @@ export const BottomTabNavigator = () => {
       tabBar={props => <BottomTabBar {...props} />}
       screenOptions={{headerShown: false}}>
       <Tab.Screen name={routeNames.home} component={Screen.Home} />
-      {/* <Tab.Screen name={routeNames.AMCPackages} component={Screen.AMCPackages} /> */}
-      {/* <Tab.Screen name={routeNames.Orders} component={Screen.Orders} /> */}
-      <Tab.Screen name={routeNames.Profile} component={Screen.Profile} />
+      <Tab.Screen name={routeNames.OrderScreen} component={Screen.OrderScreen} />
+      <Tab.Screen name={routeNames.EarningScreen} component={Screen.EarningScreen} />
     </Tab.Navigator>
   );
 };
@@ -129,17 +143,19 @@ export const BottomTabNavigator = () => {
 const styles = StyleSheet.create({
   tabBarContainer: {
     paddingHorizontal: 20,
+        backgroundColor: colors.white,
   },
   tabBar: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: colors.lightGrey,
-    borderRadius: 25,
+    backgroundColor: colors.white,
+    borderRadius: 30,
     borderWidth: 1,
-    borderColor: colors.darkGray,
+    borderColor: colors.Grey,
     paddingHorizontal: 10,
-    height: 50,
+    height: 60,
+    marginBottom : h(2),
   },
   tabButton: {
     flex: 1,
@@ -147,8 +163,32 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: 50,
   },
+  // iconContainer: {
+  //   justifyContent: 'center',
+  //   alignItems: 'center',
+  //       padding:10,
+  //   backgroundColor:'#5C2E92', 
+  //   paddingHorizontal:w(8),
+  //   borderRadius:20,
+  // },
   iconContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
+  paddingVertical: 8,
+  paddingHorizontal: 12,
+  borderRadius: 20,
+},
+
+activeTab: {
+  backgroundColor: '#5C2E92',
+  paddingHorizontal: w(5),
+  borderRadius:25,
+  height: 40,
+},
+
+tabLabel: {
+  marginLeft: 8,
+},
+
 });

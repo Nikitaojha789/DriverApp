@@ -17,6 +17,7 @@ import {Helper} from '../helper/Helper.ts';
 export type RootStackParamList = {
   login: undefined;
   Register: undefined;
+  AccountVerification:undefined;
   OtpScreen: {phone: string};
   PersonalDetails: undefined;
   AddressDetails: {personalDetails: {fullName: string; email: string}};
@@ -43,25 +44,26 @@ export const AppRoute = () => {
     }
   }, [isConnected]);
 
-  const renderNavigator = () => {
-    if (!isNetwork) {
-      return <Network />;
-    }
-    if (appStatusTypes.splash === appStatus) {
-      return <Screen.Splash />;
-    }
-    if (appStatusTypes.auth === appStatus) {
-      return <AuthNavigator />;
-    }
-    if (appStatusTypes.market === appStatus) {
-      return <MarketingNavigator/>;
-    }
-    return <HomeNavigator />;
-  };
+  const renderNavigator = React.useMemo(() => {
+  if (!isNetwork) {
+    return <Network />;
+  }
+  if (appStatusTypes.splash === appStatus) {
+    return <Screen.Splash />;
+  }
+  if (appStatusTypes.auth === appStatus) {
+    return <AuthNavigator />;
+  }
+  if (appStatusTypes.market === appStatus) {
+    return <MarketingNavigator />;
+  }
+  return <HomeNavigator />;
+}, [appStatus, isNetwork]);
+
 
   return (
     <NavigationContainer ref={navigationRef}>
-        <ThemeProvider>{renderNavigator()}</ThemeProvider>
+        <ThemeProvider>{renderNavigator}</ThemeProvider>
 
         {/* <AnimatedPopup /> */}
         {/* <AnimatedBottomSheet /> */}

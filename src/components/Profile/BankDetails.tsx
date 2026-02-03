@@ -16,70 +16,71 @@ export const BankDetails = () => {
   const [accountName, setAccountName] = useState('');
   const [accountNumber, setAccountNumber] = useState('');
   const [bankCode, setBankCode] = useState('');
-    const accountNumberRegex = /^\d{6,11}$/;
-const bankCodeRegex = /^\d{5,6}$/;
-const [errors, setErrors] = useState({
-      accountName: '',
-      accountNumber:'',
-      bankCode: '',
-    });
-
-const validateAccountName = (name: string) => {
-  const trimmed = name.trim();
-
-  if (!trimmed) return 'Account holder name is required';
-  if (trimmed.length < 3) return 'Name must be at least 3 characters';
-  if (trimmed.length > 50) return 'Name is too long';
-
-  for (const char of trimmed) {
-    if (
-      !(
-        (char >= 'A' && char <= 'Z') ||
-        (char >= 'a' && char <= 'z') ||
-        char === ' ' ||
-        char === '.' ||
-        char === '-' ||
-        char === "'"
-      )
-    ) {
-      return 'Name contains invalid characters';
-    }
-  }
-
-  return '';
-};
-
-
-const validateAccountNumber = (number: string) => {
-  if (!number.trim()) return 'Account number is required';
-  if (!accountNumberRegex.test(number)) return 'Enter a valid account number';
-  return '';
-};
-
-const validateBankCode = (code: string) => {
-  if (!code.trim()) return 'Bank code is required';
-  if (!bankCodeRegex.test(code)) return 'Enter a valid bank code';
-  return '';
-};
-
-
-const validateForm = () => {
-  const nameError = validateAccountName(accountName);
-  const numberError = validateAccountNumber(accountNumber);
-  const bankCodeError = validateBankCode(bankCode);
-
-  setErrors({
-    accountName: nameError,
-    accountNumber: numberError,
-    bankCode: bankCodeError,
+  const accountNumberRegex = /^\d{6,11}$/;
+  const bankCodeRegex = /^\d{5,6}$/;
+  const [errors, setErrors] = useState({
+    accountName: '',
+    accountNumber: '',
+    bankCode: '',
   });
 
-  if (nameError || numberError || bankCodeError) {
-    return;
-  }
+  const validateAccountName = (name: string) => {
+    const trimmed = name.trim();
 
-  setAppStatus(appStatusTypes.home);
-};
+    if (!trimmed) return 'Account holder name is required';
+    if (trimmed.length < 3) return 'Name must be at least 3 characters';
+    if (trimmed.length > 50) return 'Name is too long';
+
+    for (const char of trimmed) {
+      if (
+        !(
+          (char >= 'A' && char <= 'Z') ||
+          (char >= 'a' && char <= 'z') ||
+          char === ' ' ||
+          char === '.' ||
+          char === '-' ||
+          char === "'"
+        )
+      ) {
+        return 'Name contains invalid characters';
+      }
+    }
+
+    return '';
+  };
+
+
+  const validateAccountNumber = (number: string) => {
+    if (!number.trim()) return 'Account number is required';
+    if (!accountNumberRegex.test(number)) return 'Enter a valid account number';
+    return '';
+  };
+
+  const validateBankCode = (code: string) => {
+    if (!code.trim()) return 'Bank code is required';
+    if (!bankCodeRegex.test(code)) return 'Enter a valid bank code';
+    return '';
+  };
+
+
+  const validateForm = () => {
+    const nameError = validateAccountName(accountName);
+    const numberError = validateAccountNumber(accountNumber);
+    const bankCodeError = validateBankCode(bankCode);
+
+    setErrors({
+      accountName: nameError,
+      accountNumber: numberError,
+      bankCode: bankCodeError,
+    });
+
+    if (nameError || numberError || bankCodeError) {
+      return;
+    }
+
+    // setAppStatus(appStatusTypes.home);
+    AppNavigation.navigateToAccountVerification();
+  };
 
 
   return (
@@ -105,15 +106,15 @@ const validateForm = () => {
               alignSelf: 'center'
             }}
             placeholderTextColor={colors.InactiveButtonColor}
-           value={accountName}
-  onChangeText={(text) => {
-    setAccountName(text);
-    setErrors(prev => ({ ...prev, accountName: '' }));
-  }}
-  keyboardType="default"
-  autoCapitalize="words"
-  maxLength={50}
-  error={errors.accountName}
+            value={accountName}
+            onChangeText={(text) => {
+              setAccountName(text);
+              setErrors(prev => ({ ...prev, accountName: '' }));
+            }}
+            keyboardType="default"
+            autoCapitalize="words"
+            maxLength={50}
+            error={errors.accountName}
 
 
           />
@@ -129,12 +130,12 @@ const validateForm = () => {
             placeholderTextColor={colors.InactiveButtonColor}
             keyboardType="numeric"
             maxLength={11}
-           value={accountNumber}
-  onChangeText={(text) => {
-    setAccountNumber(text);
-    setErrors(prev => ({ ...prev, accountNumber: '' }));
-  }}
-  error={errors.accountNumber}
+            value={accountNumber}
+            onChangeText={(text) => {
+              setAccountNumber(text);
+              setErrors(prev => ({ ...prev, accountNumber: '' }));
+            }}
+            error={errors.accountNumber}
           />
           <AppInput
             label='Bank Code'
@@ -148,12 +149,12 @@ const validateForm = () => {
             placeholderTextColor={colors.InactiveButtonColor}
             keyboardType="numeric"
             maxLength={6}
-           error={errors.bankCode}
-             value={bankCode}
-  onChangeText={(text) => {
-    setBankCode(text);
-    setErrors(prev => ({ ...prev, bankCode: '' }));
-  }}
+            error={errors.bankCode}
+            value={bankCode}
+            onChangeText={(text) => {
+              setBankCode(text);
+              setErrors(prev => ({ ...prev, bankCode: '' }));
+            }}
           />
         </View>
 

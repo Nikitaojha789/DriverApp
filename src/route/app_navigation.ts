@@ -23,14 +23,24 @@ export class AppNavigation {
       navigationRef.navigate(routeNames.OtpScreen, params);
     }
   };
-  static navigateToHome = () => {
+  static navigateToAccountVerification = () => {
     if (navigationRef.isReady()) {
-      navigationRef?.navigate('home');
+      navigationRef?.navigate('AccountVerification');
     }
   };
   static navigateToProfileRegistration = () => {
     if (navigationRef.isReady()) {
       navigationRef?.navigate('ProfileRegistration');
+    }
+  };
+  static navigateToLoginRegistration = () => {
+    if (navigationRef.isReady()) {
+      navigationRef?.navigate('ProfileRegistration');
+    }
+  };
+   static navigateToHomeScreen = () => {
+    if (navigationRef.isReady()) {
+      navigationRef?.navigate('home');
     }
   };
 }

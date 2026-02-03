@@ -1,19 +1,28 @@
 import React from 'react';
-import {View} from 'react-native';
-import {Icons} from '../asset';
-import {colors} from '../constant/color';
+import { TouchableOpacity } from 'react-native';
+import { Icons } from '../asset';
+import { colors } from '../constant/color';
+import { FillCheckBoxIcon, UnFillCheckboxIcon } from '../asset/icons/authIcon';
+  
+interface CheckBoxProps {
+onPress:() => void;
+isSelected:boolean,
+color:string,
+}
 
 export const AppCheckboxButton = ({
   isSelected = false,
+  onPress,
   color = colors.secondary,
-}) => {
+}:CheckBoxProps) => {
   return (
-    <View>
+    <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
       {isSelected ? (
-        <Icons.CheckBoxIcon color={color} />
+        <FillCheckBoxIcon color={color} />
       ) : (
-        <Icons.UnFillCheckboxIcon color={color} />
+        <UnFillCheckboxIcon color={color} />
       )}
-    </View>
+    </TouchableOpacity>
   );
 };
+

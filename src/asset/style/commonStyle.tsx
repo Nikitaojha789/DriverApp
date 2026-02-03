@@ -73,6 +73,7 @@ export const fontSize = {
   veryLarge: 24,
   largeDefault:28,
   extraLarge: 30,
+  xxlarge:36,
 };
 
 export const screenHeadingStyle = {
@@ -301,7 +302,7 @@ export const countryCodeStyle = {
   color: colors.placeholder,
   fontFamily: fonts.medium,
   // marginBottom:-4,
-  marginLeft: 10,
+  marginLeft: 15,
 };
 export const inputLabelStyle = {
   fontSize: fontSize.normal,

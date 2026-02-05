@@ -1,4 +1,4 @@
-import { View, TouchableOpacity, StyleSheet, Keyboard, TouchableWithoutFeedback, } from 'react-native'
+import { View, TouchableOpacity, StyleSheet, Keyboard, TouchableWithoutFeedback, ScrollView, } from 'react-native'
 import React, { useState } from 'react'
 import { AppNavigation } from '../../route/app_navigation';
 import { AppContainer } from '../../components/AppContainer';
@@ -16,6 +16,9 @@ import { useDispatch } from 'react-redux';
 import { actionTypes } from '../../store/actionType';
 import { appStatusTypes } from '../../constant/type';
 import { setAppStatus } from '../../store/action';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { BackButton } from '../../components/button/BackButton';
+import { h } from '../../constant/dimension';
 
 
 const OtpScreen = () => {
@@ -35,85 +38,83 @@ const OtpScreen = () => {
   };
 
   return (
-    <TouchableWithoutFeedback
-      onPress={Keyboard.dismiss}
-      accessible={false}
-    >
-      <AppContainer>
+    <SafeAreaView style={{ flex: 1 }}>
+      <TouchableWithoutFeedback
+        onPress={Keyboard.dismiss}
+        accessible={false}
+      >
+        <ScrollView
+          contentContainerStyle={styles.scroll}
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}>
+          <AppContainer>
+            <View style={{marginTop:h(3)}}><BackButton /></View>
+            <View style={{marginTop:h(3)}}>
+              <AppText
+                title="Verify Your Account"
+                color="#3E1F63"
+                fontSize={fontSize.largeDefault}
+                fontFamily={fonts.semiBold}
 
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => AppNavigation.goBack()}>
-          <AppImage
-            url={require('../../asset/images/BackIcon.png')}
-            containerStyle={styles.imageContainer}
-          />
-        </TouchableOpacity>
+              />
+              <AppText
+                title="Enter the code sent to 9876543210"
+                color={colors.black}
+                fontSize={fontSize.default}
+                fontFamily={fonts.regular}
+              />
+              {/* <AppText
+                title="drive@gmail.com"
+                color={colors.darkBlack}
+                fontSize={fontSize.default}
+                fontFamily={fonts.medium}
+              /> */}
+            </View>
 
-        <View>
-          <AppText
-            title="Verify Your Account"
-            color="#3E1F63"
-            fontSize={fontSize.largeDefault}
-            fontFamily={fonts.semiBold}
+            <View style={{ marginTop: 30 }}>
+              <OtpInput
+                otpLength={6}
+                onOtpChange={handleOtpChange}
+                filledBackgroundColor={colors.purple}
+              />
+            </View>
 
-          />
-          <AppText
-            title="We’ve sent a verification code to"
-            color={colors.black}
-            fontSize={fontSize.default}
-            fontFamily={fonts.regular}
-          />
-          <AppText
-            title="drive@gmail.com"
-            color={colors.darkBlack}
-            fontSize={fontSize.default}
-            fontFamily={fonts.medium}
-          />
-        </View>
+            <View
+              style={{
+                marginTop: 28,
+                flexDirection: 'row',
+                justifyContent: 'center',
+              }}>
+              <AppText
+                title="Didn't receive the code? "
+                color={colors.textColor}
+                fontSize={fontSize.normal}
+                fontFamily={fonts.regular}
+              />
+              <AppText
+                title="Resend in 28s"
+                color={colors.InactiveButtonColor}
+                fontSize={fontSize.normal}
+                fontFamily={fonts.regular}
+              />
+            </View>
 
-        <View style={{ marginTop: 30 }}>
-          <OtpInput
-            otpLength={6}
-            onOtpChange={handleOtpChange}
-            filledBackgroundColor={colors.purple}
-          />
-        </View>
+            <Spacer size={20} />
 
-        <View
-          style={{
-            marginTop: 28,
-            flexDirection: 'row',
-            justifyContent: 'center',
-          }}>
-          <AppText
-            title="Didn't receive the code? "
-            color={colors.textColor}
-            fontSize={fontSize.normal}
-            fontFamily={fonts.regular}
-          />
-          <AppText
-            title="Resend in 28s"
-            color={colors.InactiveButtonColor}
-            fontSize={fontSize.normal}
-            fontFamily={fonts.regular}
-          />
-        </View>
+            <AppButton
+              title="Verify"
+              bgColor="#5C2E92"
+              textColor={colors.white}
+              onPress={handleVerifyPress}
+              height={52}
+            />
 
-        <Spacer size={20} />
+            <Spacer size={25} />
 
-        <AppButton
-          title="Verify"
-          bgColor="#5C2E92"
-          textColor={colors.white}
-          onPress={handleVerifyPress}
-          height={52}
-        />
-
-        <Spacer size={25} />
-
-      </AppContainer>
-    </TouchableWithoutFeedback>
+          </AppContainer>
+        </ScrollView>
+      </TouchableWithoutFeedback>
+    </SafeAreaView>
   );
 };
 
@@ -121,6 +122,11 @@ const OtpScreen = () => {
 export default OtpScreen
 
 const styles = StyleSheet.create({
+  scroll: {
+    flexGrow: 1,
+    paddingBottom: 28,
+    backgroundColor: colors.white,
+  },
   backButton: {
     marginTop: 50,
     paddingVertical: 20,

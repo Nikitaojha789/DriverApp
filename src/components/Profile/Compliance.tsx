@@ -17,7 +17,7 @@ type ComplianceProps = {
 }
 
 export const Compliance = ({
-  title = 'Compliance & Terms',
+  title,
   items,
 }: ComplianceProps) => {
   return (
@@ -56,11 +56,14 @@ const styles = StyleSheet.create({
     paddingVertical: h(1),
     paddingHorizontal: w(4),
     marginBottom: h(2),
-    shadowColor: '#525151c4',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.02,
-    shadowRadius: 1,
-    elevation: 2,
+        shadowColor: '#000',
+        shadowOpacity: 0.2,
+        shadowRadius: 1,
+        elevation:1,
+        borderWidth:0,
+        borderColor:colors.InactiveButtonColor,
+        shadowOffset: { width: 2, height: 2 },
+        marginHorizontal:w(0.2),
   },
 
   header: {

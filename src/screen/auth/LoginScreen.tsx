@@ -15,6 +15,7 @@ import { useNavigation } from '@react-navigation/native'
 import { appStatusTypes } from '../../constant/type'
 import { AppNavigation } from '../../route/app_navigation'
 import { routeNames } from '../../route/route_name'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 const LoginScreen = () => {
   const [phone, setPhone] = useState('');
@@ -34,11 +35,12 @@ const onContinuePress = () => {
 };
 
   return (
+    <SafeAreaView>
+    <ScrollView
+            contentContainerStyle={styles.scroll}
+            keyboardShouldPersistTaps="handled"
+            showsVerticalScrollIndicator={false}>
     <AppContainer>
-      <ScrollView
-        contentContainerStyle={styles.scroll}
-        keyboardShouldPersistTaps="handled"
-        showsVerticalScrollIndicator={false}>
         <View>
           <View style={{ alignItems: 'center' }}>
             <AppIcon />
@@ -94,8 +96,8 @@ Terms of Service  Privacy Policy  Content Policy`}
                         />
                       </View>
         </View>
-      </ScrollView>
-    </AppContainer>
+     
+    </AppContainer> </ScrollView></SafeAreaView>
   )
 }
 

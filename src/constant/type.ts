@@ -47,3 +47,12 @@ export type TimeSlotItemProps = {
   time: string;
   status: string;
 };
+
+export enum OrderStatus {
+  PICKUP = "PICKUP",
+  AT_RESTAURANT = "AT_RESTAURANT",
+  ON_THE_WAY = "ON_THE_WAY",
+  DELIVERED = "DELIVERED",
+  PROOF_OF_DELIVERY = "PROOF_OF_DELIVERY",
+}
+

@@ -13,9 +13,9 @@ export class AppNavigation {
       navigationRef.dispatch(StackActions.popToTop());
     }
   };
-  static navigateToRegister = () => {
+  static navigateToLoginScreen = () => {
     if (navigationRef.isReady()) {
-      navigationRef?.navigate('Register');
+      navigationRef?.navigate('LoginScreen');
     }
   };
   static navigateToOtp = (params: {phone: string}) => {
@@ -41,6 +41,11 @@ export class AppNavigation {
    static navigateToHomeScreen = () => {
     if (navigationRef.isReady()) {
       navigationRef?.navigate('home');
+    }
+  };
+  static navigateToTrackOrder = () => {
+    if (navigationRef.isReady()) {
+      navigationRef?.navigate('TrackOrder');
     }
   };
 }

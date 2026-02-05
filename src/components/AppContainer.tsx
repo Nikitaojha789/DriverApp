@@ -12,7 +12,7 @@ export const AppContainer = ({children}: appContainerProps) => {
   const themeColor = useThemeColor();
 
   return (
-    <View style={{flex: 1, backgroundColor: colors.white, paddingHorizontal:30}}>
+    <View style={{flex: 1, backgroundColor: colors.white, paddingHorizontal:16}}>
       {children}
     </View>
   );
@@ -22,7 +22,7 @@ export const PureContainer = ({children}: appContainerProps) => {
   const themeColor = useThemeColor();
 
   return (
-    <View style={{flex: 1, backgroundColor: colors.primary}}>
+    <View style={{flex: 1, backgroundColor: colors.white}}>
       {children}
     </View>
   );

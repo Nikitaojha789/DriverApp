@@ -82,7 +82,7 @@ const AccountVerification = () => {
               ContainerElevation={2}
             />
             <DetailBadges
-              icon={<UnderReviewIcon />}
+              icon={<UnderReviewIcon size={24}/>}
               title="Insurance Cetificate"
               statusText="Under Review"
               statusBgColor="#f5a52318"
@@ -118,7 +118,7 @@ const AccountVerification = () => {
             />
           </View>
           <View>
-            <Compliance
+            <Compliance title="'Compliance & Terms'"
               items={[
                 {
                   icon: <VerifiedIcon size={20} />,

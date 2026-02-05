@@ -154,23 +154,29 @@ export const CameraIcon = (props:any) => (
   </Svg>
 )
 
-export const UnderReviewIcon = (props:any) => (
+export const UnderReviewIcon = ({ size = 24,color,pathColor,...props}:{
+  size?: number
+  xmlns?:string
+  color?:string
+  pathColor?:string
+}) => (
   <Svg
     xmlns="http://www.w3.org/2000/svg"
-    width={24}
-    height={24}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
     fill="none"
     {...props}
   >
     <Path
-      stroke="#F5A623"
+      stroke={color}
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={2}
       d="M11.998 5.998v5.999l3.999 2"
     />
     <Path
-      stroke="#F5A623"
+      stroke={pathColor}
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={2}

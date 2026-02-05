@@ -1,6 +1,6 @@
 import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { ProfileIcon } from '../../asset/icons/HomeIcon'
+import { CorrectIconSvg, DeliveryIcon, EarningTabIcon, LocationIcon, ProfileIcon, RatingIcon } from '../../asset/icons/HomeIcon'
 import { colors } from '../../constant/color'
 import { fontSize } from '../../asset/style/commonStyle'
 import { fonts } from '../../asset'
@@ -9,40 +9,66 @@ import { AppContainer } from '../../components/AppContainer'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { h } from '../../constant/dimension'
 import { OnlineIcon } from '../../components/Home/OnlineIcon'
+import { StatCards } from '../../components/Home/StatCards'
+import AppStatCards from '../../components/Home/AppStatCards'
+import { Compliance } from '../../components/Profile/Compliance'
 
 const Home = () => {
   return (
-    <SafeAreaView style={{flex:1,backgroundColor:colors.white}}>
-    <AppContainer>
-      <ScrollView
-        contentContainerStyle={styles.scroll}
-        keyboardShouldPersistTaps="handled"
-        showsVerticalScrollIndicator={false}
-      >
-        <View style={styles.headerRow}>
-          <View>
-            <AppText
-              title="Hello, Driver"
-              fontFamily={fonts.semiBold}
-              fontSize={fontSize.largeMedium}
-              color={colors.textColor}
-              style={{ lineHeight: fontSize.largeMedium + h(1) }}
-            />
-            <AppText
-              title="Ready to deliver today?"
-              color={colors.InactiveButtonColor}
-              fontSize={fontSize.normal}
-              fontFamily={fonts.regular}
-              style={{ lineHeight: fontSize.normal + h(1) }}
-            />
+    <SafeAreaView style={{ flex: 1, backgroundColor: colors.white }}>
+      <AppContainer>
+        <ScrollView
+          contentContainerStyle={styles.scroll}
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
+        >
+          <View style={styles.headerRow}>
+            <View>
+              <AppText
+                title="Hello, Driver"
+                fontFamily={fonts.semiBold}
+                fontSize={fontSize.largeMedium}
+                color={colors.textColor}
+                style={{ lineHeight: fontSize.largeMedium + h(1) }}
+              />
+              <AppText
+                title="Ready to deliver today?"
+                color={colors.InactiveButtonColor}
+                fontSize={fontSize.normal}
+                fontFamily={fonts.regular}
+                style={{ lineHeight: fontSize.normal + h(1) }}
+              />
+            </View>
+            <ProfileIcon />
           </View>
-          <ProfileIcon />
-        </View>
-        <View>
-          <OnlineIcon/>
-        </View>
-      </ScrollView>
-    </AppContainer>
+          <View>
+            <OnlineIcon />
+          </View>
+          <View style={{ marginTop: h(6) }}>
+            <AppText title="Today's Stats" fontSize={fontSize.largeMedium}
+              fontFamily={fonts.semiBold} />
+            <AppStatCards/>
+          </View>
+          <View style={{marginTop:h(3)}}>
+                      <Compliance title='Quick Tips'
+                        items={[
+                          {
+                            icon: <CorrectIconSvg/>,
+                            title: 'Keep your phone charged for continuous updates',
+                          },
+                          {
+                            icon: <CorrectIconSvg/>,
+                            title: 'Check weather conditions before  heading out',
+                          },
+                          {
+                            icon: <CorrectIconSvg/>,
+                            title: 'Maintain a high rating for better opportunities',
+                          },
+                        ]}
+                      />
+                    </View>
+        </ScrollView>
+      </AppContainer>
     </SafeAreaView>
   );
 };
@@ -51,10 +77,10 @@ const Home = () => {
 export default Home
 
 const styles = StyleSheet.create({
-   scroll: {
+  scroll: {
     flexGrow: 1,
     backgroundColor: colors.white,
-    paddingTop: h(8), 
+    paddingTop: h(2),
   },
   headerRow: {
     flexDirection: 'row',

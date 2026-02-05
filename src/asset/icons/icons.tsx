@@ -13,11 +13,23 @@ import Svg, {
 } from 'react-native-svg';
 import { colors } from '../../constant/color';
 
-export const BackIcon = ({ color = 'white', size = 20 }) => (
-  <Svg width={size} height={size} fill={color} viewBox="0 -960 960 960">
-    <Path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
+export const BackIcon = (props:any) => (
+  <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={8}
+    height={14}
+    fill="none"
+    {...props}
+  >
+    <Path
+      stroke="#2B2B2B"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M7 1 1 7l6 6"
+    />
   </Svg>
-);
+)
 
 export const BackIcon2 = ({ color = 'white', size = 24 }) => (
   <Svg

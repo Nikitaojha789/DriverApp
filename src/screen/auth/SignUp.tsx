@@ -205,7 +205,7 @@ const Login = () => {
                 style={styles.prompt}
                 center
               />
-              <TouchableButton onPress={() => AppNavigation.navigateToRegister()}>
+              <TouchableButton onPress={() =>   AppNavigation.navigateToLoginScreen()}>
                 <AppTxt title={'Sign in'} style={styles.cta} center />
               </TouchableButton>
             </View>

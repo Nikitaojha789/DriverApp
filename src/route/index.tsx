@@ -27,6 +27,7 @@ export type RootStackParamList = {
   Availability: undefined;
   ProfileRegistration:undefined;
   home:undefined;
+  TrackOrder:undefined;
   // ... other routes
 };
 

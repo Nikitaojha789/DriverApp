@@ -8,6 +8,7 @@ import {
   TextStyleAndroid,
   TextStyleIOS,
   GestureResponderEvent,
+  StyleProp,
 } from 'react-native';
 import {colors} from '../constant/color';
 import {fonts} from '../asset';
@@ -20,11 +21,11 @@ import {
 } from '../asset/style/commonStyle';
 
 interface appHeadingProps {
-  title: string;
+  title: string | undefined;
   color?: string;
   fontSize?: number;
   fontWeight?: TextStyle['fontWeight'];
-  style?: TextStyle;
+  style?: StyleProp<TextStyle>;
   numberOfLines?: number;
   isCapitalize?: boolean;
   //   onPress?: Function;

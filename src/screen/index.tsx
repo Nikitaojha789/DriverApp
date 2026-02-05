@@ -9,6 +9,7 @@ import LoginScreen from './auth/LoginScreen';
 import Home from './home/Home';
 import OrderScreen from './home/OrderScreen';
 import EarningScreen from './home/EarningScreen';
+import TrackOrder from './home/TrackOrder';
 export {
   Splash,
   Marketing,
@@ -20,4 +21,5 @@ export {
   Home,
   OrderScreen,
   EarningScreen,
+  TrackOrder,
 };

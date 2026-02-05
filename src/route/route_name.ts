@@ -13,4 +13,5 @@ export const routeNames = {
     home: 'Home',
 OrderScreen:"Order's",
 EarningScreen:'Earnings',
+TrackOrder:'TrackOrder',
 }as const;

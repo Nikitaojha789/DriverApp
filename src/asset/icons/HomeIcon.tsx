@@ -85,3 +85,224 @@ export const EarningTabIcon = ({color,...props}:any) => (
     </Defs>
   </Svg>
 )
+
+export const OffToggleIcon = (props:any) => (
+  <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={54}
+    height={36}
+    fill="none"
+    {...props}
+  >
+    <Path
+      fill="#E6E6E6"
+      d="M6 18c0-6.627 5.373-12 12-12h24c6.627 0 12 5.373 12 12s-5.373 12-12 12H18c-6.627 0-12-5.373-12-12Z"
+    />
+    <G filter="url(#a)">
+      <Path
+        fill="#fff"
+        d="M8 18c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10S8 23.523 8 18Z"
+      />
+    </G>
+    <Defs></Defs>
+  </Svg>
+)
+
+export const OnToggleIcon = (props:any) => (
+  <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={51}
+    height={31}
+    fill="none"
+    {...props}
+  >
+    <Path
+      fill="#5C2E92"
+      d="M0 12C0 5.373 5.373 0 12 0h24c6.627 0 12 5.373 12 12s-5.373 12-12 12H12C5.373 24 0 18.627 0 12Z"
+    />
+    <G filter="url(#a)">
+      <Path
+        fill="#fff"
+        d="M26 12c0-5.522 4.477-10 9.998-10 5.523 0 9.999 4.478 9.999 10s-4.477 10-9.998 10C30.476 22 26 17.522 26 12Z"
+      />
+    </G>
+    <Defs></Defs>
+  </Svg>
+)
+export const DeliveryIcon = ({color,...props}:any) => (
+  <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={20}
+    height={20}
+    fill="none"
+    {...props}
+  >
+    <G
+      stroke={color}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.666}
+      clipPath="url(#a)"
+    >
+      <Path d="M9.163 18.101a1.666 1.666 0 0 0 1.666 0l5.83-3.332a1.666 1.666 0 0 0 .834-1.441V6.664a1.666 1.666 0 0 0-.833-1.44L10.829 1.89a1.666 1.666 0 0 0-1.666 0L3.332 5.223a1.666 1.666 0 0 0-.833 1.441v6.664a1.666 1.666 0 0 0 .833 1.441l5.83 3.332ZM9.996 18.326v-8.33" />
+      <Path d="m2.74 5.83 7.256 4.165L17.25 5.83M6.247 3.557l7.497 4.29" />
+    </G>
+    <Defs>
+      <ClipPath id="a">
+        <Path fill="#fff" d="M0 0h19.991v19.991H0z" />
+      </ClipPath>
+    </Defs>
+  </Svg>
+)
+
+export const LocationIcon = ({color,...props}:any) => (
+  <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={20}
+    height={20}
+    fill="none"
+    {...props}
+  >
+    <G
+      stroke={color}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.666}
+      clipPath="url(#a)"
+    >
+      <Path d="M16.66 8.33c0 4.159-4.614 8.49-6.164 9.828a.833.833 0 0 1-1 0c-1.55-1.338-6.164-5.67-6.164-9.828a6.664 6.664 0 1 1 13.328 0Z" />
+      <Path d="M9.996 10.828a2.499 2.499 0 1 0 0-4.998 2.499 2.499 0 0 0 0 4.998Z" />
+    </G>
+    <Defs>
+      <ClipPath id="a">
+        <Path fill="#fff" d="M0 0h19.991v19.991H0z" />
+      </ClipPath>
+    </Defs>
+  </Svg>
+)
+
+export const RatingIcon = (props:any) => (
+  <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={20}
+    height={20}
+    fill="none"
+    {...props}
+  >
+    <G clipPath="url(#a)">
+      <Path
+        fill="#F5A623"
+        stroke="#F5A623"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.666}
+        d="M9.6 1.912a.441.441 0 0 1 .791 0l1.925 3.897a1.768 1.768 0 0 0 1.328.966l4.303.63a.441.441 0 0 1 .245.753l-3.112 3.03a1.768 1.768 0 0 0-.509 1.565l.735 4.281a.442.442 0 0 1-.642.467l-3.847-2.023a1.768 1.768 0 0 0-1.643 0l-3.846 2.023a.442.442 0 0 1-.642-.467l.734-4.28a1.767 1.767 0 0 0-.509-1.565L1.8 8.159a.442.442 0 0 1 .245-.755l4.302-.629a1.768 1.768 0 0 0 1.33-.966L9.6 1.912Z"
+      />
+    </G>
+    <Defs>
+      <ClipPath id="a">
+        <Path fill="#fff" d="M0 0h19.991v19.991H0z" />
+      </ClipPath>
+    </Defs>
+  </Svg>
+)
+
+export const CorrectIconSvg = (props:any) => (
+  <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={11}
+    height={11}
+    fill="none"
+    {...props}
+  >
+    <Path
+      fill="#5C2E92"
+      d="M2.212 10.78c0-.121-.023-.182-.07-.182l-.322.154c0-.065-.037-.112-.112-.14l-.112-.014a.591.591 0 0 0-.28.098.975.975 0 0 0-.07-.14 1.92 1.92 0 0 1-.07-.126c-.121-.233-.243-.49-.364-.77L.49 8.834a44.137 44.137 0 0 0-.224-.616 5.608 5.608 0 0 1-.126-.546C.093 7.43.047 7.122 0 6.748c.103.065.182.098.238.098.065 0 .126-.098.182-.294.028.037.08.056.154.056.056 0 .098-.019.126-.056l.224-.336.252.084h.014c.019 0 .037-.01.056-.028a.326.326 0 0 1 .084-.056c.075-.047.13-.07.168-.07l.042.014c.233.112.383.317.448.616.168.71.336 1.064.504 1.064.168 0 .364-.177.588-.532.112-.177.224-.383.336-.616.121-.233.243-.495.364-.784.019.112.037.168.056.168.047 0 .126-.117.238-.35.121-.233.313-.555.574-.966.15-.252.336-.537.56-.854a57.232 57.232 0 0 1 1.498-1.932c.252-.299.476-.555.672-.77.196-.215.34-.355.434-.42.355-.243.635-.476.84-.7a1.04 1.04 0 0 1-.042.182.59.59 0 0 0-.014.098c0 .037.019.056.056.056l.392-.196V.28c0 .075.019.112.056.112.028 0 .084-.042.168-.126.084-.084.13-.145.14-.182L9.38.28 9.856 0l-.112.252c.15-.103.257-.154.322-.154.037 0 .065.023.084.07a.248.248 0 0 1 .028.112.385.385 0 0 1-.07.196 4.712 4.712 0 0 1-.182.266c-.056.075-.15.187-.28.336-.121.14-.308.35-.56.63-.252.27-.588.649-1.008 1.134a9.737 9.737 0 0 0-.518.644c-.233.299-.5.649-.798 1.05-.29.392-.579.789-.868 1.19-.29.401-.546.765-.77 1.092a11.48 11.48 0 0 0-.476.714l-.868 1.47c-.187.317-.34.579-.462.784a3.425 3.425 0 0 1-.28.406c-.14.168-.294.317-.462.448l-.126-.07-.112.07-.126.14Z"
+    />
+  </Svg>
+)
+
+export const PickupLocationIcon = (props:any) => (
+  <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={16}
+    height={16}
+    fill="none"
+    {...props}
+  >
+    <Path
+      fill="#1E88E5"
+      fillOpacity={0.26}
+      d="M0 8a8 8 0 1 1 16 0A8 8 0 1 1 0 8Z"
+    />
+    <Path fill="#1E88E5" d="M4.01 8a4 4 0 0 1 8 0 4 4 0 0 1-8 0Z" />
+  </Svg>
+)
+export const ShareIcon = (props:any) => (
+  <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={24}
+    height={24}
+    fill="none"
+    {...props}
+  >
+    <Path
+      fill="#2B2B2B"
+      d="M2.453 20.654a.75.75 0 0 1-.75-.787c0-.113.772-11.003 11.692-11.858V4.094a.75.75 0 0 1 1.286-.525l7.403 7.56a.75.75 0 0 1 0 1.05l-7.403 7.56a.75.75 0 0 1-1.286-.525v-3.84c-7.29.278-10.279 4.875-10.309 4.932a.75.75 0 0 1-.633.348ZM14.895 5.932V8.71a.75.75 0 0 1-.724.75c-7.065.258-9.592 4.965-10.5 7.99 1.875-1.62 5.216-3.6 10.429-3.6h.034a.75.75 0 0 1 .75.75v2.78l5.625-5.723-5.614-5.726Z"
+    />
+  </Svg>
+)
+
+export const TelephoneIcon = (props:any) => (
+  <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={22}
+    height={22}
+    fill="none"
+    {...props}
+  >
+    <Path
+      stroke="#2ECC71"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M12.83 15.566a1 1 0 0 0 1.213-.303l.355-.464a2 2 0 0 1 1.6-.8h3a2 2 0 0 1 2 2v2.999a2 2 0 0 1-2 2A17.998 17.998 0 0 1 1 3a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.469.35a1 1 0 0 0-.292 1.233 13.998 13.998 0 0 0 6.392 6.383Z"
+    />
+  </Svg>
+)
+
+export const DestinationIcon = (props:any) => (
+  <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={16}
+    height={16}
+    fill="none"
+    {...props}
+  >
+    <Path
+      stroke="#1E88E5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M.5 7.357 14.976.5 8.12 14.976 6.595 8.881.5 7.357Z"
+      clipRule="evenodd"
+    />
+  </Svg>
+)
+
+export const MessageIcon = (props:any) => (
+  <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={22}
+    height={22}
+    fill="none"
+    {...props}
+  >
+    <Path
+      stroke="#1E88E5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M1.991 15.34a2 2 0 0 1 .094 1.167l-1.064 3.29a1 1 0 0 0 1.235 1.168l3.413-.998a2 2 0 0 1 1.099.092A9.999 9.999 0 1 0 1.99 15.34Z"
+    />
+  </Svg>
+)

@@ -11,7 +11,7 @@ import { colors } from '../constant/color';
 
 interface OtpInputProps {
   otpLength?: number;
-  onOtpChange?: (otp: string) => void;
+  onOtpChange?: (otp: string ,isComplete: boolean) => void;
   borderColor?: string;
   filledBackgroundColor?: string;
   emptyBackgroundColor?: string;
@@ -19,6 +19,7 @@ interface OtpInputProps {
   filledTextColor?: string;
   boxSize?: number;
   borderRadius?: number;
+  placeholderChar?: string;
 }
 
 export const OtpInput = memo(({
@@ -30,6 +31,7 @@ export const OtpInput = memo(({
   emptyBackgroundColor = '#FFFFFF',
   boxSize = 44,
   borderRadius = 10,
+   placeholderChar = '-',
 }: OtpInputProps) => {
   const inputRef = useRef<TextInput>(null);
   const [otp, setOtp] = useState('');
@@ -41,15 +43,18 @@ export const OtpInput = memo(({
   }, []);
 
   const handleChange = (value: string) => {
-    if (value.length <= otpLength) {
-      setOtp(value);
-      onOtpChange?.(value);
+  if (value.length <= otpLength) {
+    setOtp(value);
 
-      if (value.length === otpLength) {
-        Keyboard.dismiss();
-      }
+    const isComplete = value.length === otpLength;
+    onOtpChange?.(value, isComplete);
+
+    if (isComplete) {
+      Keyboard.dismiss();
     }
-  };
+  }
+};
+
 
 const activeIndex =
   otp.length < otpLength ? otp.length : otpLength - 1;
@@ -100,10 +105,11 @@ const activeIndex =
         }}
       >
         <AppHeading
-          title={digit}
-          fontSize={24}
-          color={isFilled ? '#fff' : textColor}
-        />
+  title={isFilled ? digit : placeholderChar} 
+  fontSize={24}
+  color={isFilled ? '#fff' : '#000'} 
+/>
+
       </TouchableButton>
     );
   })}

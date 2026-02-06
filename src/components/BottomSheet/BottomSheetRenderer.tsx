@@ -4,6 +4,7 @@ import AtRestaurant from "./AtRestaurant";
 import { OnTheWay } from "./OnTheWay";
 import OrderPickUp from "./OrderPickUp";
 import { Helper } from "../../helper/Helper";
+import { ProofOfDelivery } from "./ProofOfDelivery";
 
 type Props = {
   status: OrderStatus;
@@ -22,13 +23,15 @@ export const BottomSheetRenderer = ({ status }: Props) => {
         return <AtRestaurant/>
      }
     if (
-      status === OrderStatus.ON_THE_WAY ||
-      status === OrderStatus.DELIVERED ||
-      status === OrderStatus.PROOF_OF_DELIVERY
+      status === OrderStatus.ON_THE_WAY 
     ) {
       return <OnTheWay />;
     }
-
+     if(
+      status === OrderStatus.PROOF_OF_DELIVERY
+     ) {
+        return <ProofOfDelivery/>
+     }
     return null;
   }, [status]);
 

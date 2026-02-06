@@ -2,20 +2,16 @@ import React from 'react';
 import {View,StyleSheet} from 'react-native';
 import { colors } from '../../constant/color';
 import { h, w } from '../../constant/dimension';
-import { fonts } from '../../asset';
-import { fontSize } from '../../asset/style/commonStyle';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AppImage } from '../../components/AppImage';
-import AtRestaurant from '../../components/BottomSheet/AtRestaurant';
 import { TrackScreenHeader } from '../../components/header/TrackScreenHeader';
-
 import { OrderStatus } from '../../constant/type';
 import { BottomSheetRenderer } from '../../components/BottomSheet/BottomSheetRenderer';
 import { ORDER_STATUS_UI } from '../../constant/OrderStatusConfig';
 
 const TrackOrderScreen = () => {
   const [orderStatus, setOrderStatus] = React.useState<OrderStatus>(
-    OrderStatus.ON_THE_WAY
+    OrderStatus.PROOF_OF_DELIVERY
   );
 
   const statusUI = ORDER_STATUS_UI[orderStatus];

@@ -3,7 +3,7 @@ import { AppText } from "./AppHeading";
 import { fonts } from "../asset";
 import { fontSize } from "../asset/style/commonStyle";
 import { colors } from "../constant/color";
-import { AppButton } from "./button/AppButton";
+import { AppButton } from "./button/AppBtn";
 import { ProfileProgress } from "./Profile/ProfileProgress";
 
 type Step = 1 | 2 | 3;

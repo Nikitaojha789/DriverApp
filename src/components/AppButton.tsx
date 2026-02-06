@@ -55,7 +55,7 @@ export const AppButton = memo(
           alignItems: 'center',
           justifyContent: 'center',
           backgroundColor: disabled
-            ? colors.white
+            ? colors.Grey
             : isBorder
             ? 'transparent'
             : bgColor,
@@ -74,7 +74,7 @@ export const AppButton = memo(
             />
           </>
         ) : (
-          <ButtonText primary={primary} title={title} color={textColor} />
+          <ButtonText primary={primary} title={title} color={disabled ?  colors.InactiveButtonColor:colors.white} />
         )}
       </TouchableButton>
     );

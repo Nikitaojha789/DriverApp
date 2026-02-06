@@ -50,7 +50,7 @@ export const AppRoute = () => {
     return <Network />;
   }
   if (appStatusTypes.splash === appStatus) {
-    return <Screen.Splash />;
+    return <HomeNavigator />;
   }
   if (appStatusTypes.auth === appStatus) {
     return <AuthNavigator />;

@@ -18,9 +18,10 @@ interface appButtonProps {
   fontsize?:number;
   fontfamily?:string;
   color?:string;
+  borderRadius?:number;
 }
 
-export const AppButton = ({
+export const AppBtn = ({
   color=colors.black,
   fontfamily = fonts.bold,
   fontsize = fontSize.default,
@@ -32,6 +33,7 @@ export const AppButton = ({
   height = 50,
   width=80,
   variant = 'solid',
+  borderRadius=10,
 }: appButtonProps) => {
   return (
     <TouchableButton
@@ -48,7 +50,7 @@ export const AppButton = ({
             : backgroundColor,
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 10,
+        borderRadius: borderRadius,
       }}>
       {activity ? (
         <ActivityIndicator color={colors.white} />

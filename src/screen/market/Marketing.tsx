@@ -7,7 +7,7 @@ import PagerView from 'react-native-pager-view';
 import { AppText } from '../../components/AppHeading';
 import { styles } from './style';
 import { colors } from '../../constant/color';
-import { AppButton } from '../../components/button/AppButton';
+import { AppButton } from '../../components/button/AppBtn';
 import LinearGradient from 'react-native-linear-gradient';
 import { MarketingTitleStyle } from'../../asset/style/commonStyle';
 

@@ -2,7 +2,7 @@ import { OrderStatus } from "./type";
 
 export const ORDER_STATUS_UI = {
   [OrderStatus.PICKUP]: {
-    label: "Pickup",
+    label: "Heading to pickup",
     backgroundColor: "#FFD60A16",
     textColor: "#F5A623",
   },
@@ -19,14 +19,8 @@ export const ORDER_STATUS_UI = {
     textColor: "#1E88E5",
   },
 
-  [OrderStatus.DELIVERED]: {
-    label: "Delivered",
-    backgroundColor: "#30D15816",
-    textColor: "#30D158",
-  },
-
   [OrderStatus.PROOF_OF_DELIVERY]: {
-    label: "Proof of Delivery",
+    label: "Verify Delivery",
     backgroundColor: "#30D15816",
     textColor: "#30D158",
   },

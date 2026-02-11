@@ -1,3 +1,5 @@
+import { IN_PROGRESS } from "./StaticData";
+
 export const fieldTypes: any = {
   name: 'name',
   email: 'email',
@@ -53,5 +55,22 @@ export enum OrderStatus {
   AT_RESTAURANT = "AT_RESTAURANT",
   ON_THE_WAY = "ON_THE_WAY",
   PROOF_OF_DELIVERY = "PROOF_OF_DELIVERY",
+  COMPLETED = "COMPLETED",
+  IN_PROGRESS = "IN_PROGRESS",
+  CANCELLED = "CANCELLED"
 }
 
+export const ORDER_TABS = {
+  IN_PROGRESS: 'In Progress',
+  COMPLETED: 'Completed',
+  CANCELLED: 'Cancelled',
+} as const
+
+export type OrderTab = typeof ORDER_TABS[keyof typeof ORDER_TABS]
+
+export const PERFORMANCE_TABS = {
+  THIS_WEEK: 'This Week',
+  THIS_MONTH: 'This Month',
+  THIS_YEAR: 'This Year',
+} as const
+export type PerformanceTabsHeader = typeof PERFORMANCE_TABS[keyof typeof PERFORMANCE_TABS]

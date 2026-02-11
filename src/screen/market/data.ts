@@ -1,21 +1,14 @@
 export const onboardingData = [
   {
     id:1,
-    title: `Be Your
-Own Boss`,
-
-    image: require('../../asset/images/Driver.png'),
+    image: require('../../asset/images/Splash1.png'),
   },
   {
     id:2,
-    title: `Earn On 
-    Every Trip`,
-image: require('../../asset/images/Driver.png'),
+image: require('../../asset/images/Splash2.png'),
   },
   {
     id:3,
-    title: `Easy 
-    Navigation`,
-image: require('../../asset/images/Driver.png'),
+image: require('../../asset/images/Splash3.png'),
   },
 ];

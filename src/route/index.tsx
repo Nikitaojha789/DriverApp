@@ -28,6 +28,13 @@ export type RootStackParamList = {
   ProfileRegistration:undefined;
   home:undefined;
   TrackOrder:undefined;
+  OrderDelivered:undefined;
+  OrderDetails:undefined;
+  ProfileScreen:undefined;
+  EditProfile:undefined;
+  VehicalInfo:undefined;
+  PaymentMethod:undefined;
+  Documents:undefined;
   // ... other routes
 };
 
@@ -49,14 +56,14 @@ export const AppRoute = () => {
   if (!isNetwork) {
     return <Network />;
   }
-  if (appStatusTypes.splash === appStatus) {
-    return <HomeNavigator />;
+  // if (appStatusTypes.splash === appStatus) {
+  //   return <Screen.Splash/>;
+  // }
+   if (appStatusTypes.market === appStatus) {
+    return <MarketingNavigator />;
   }
   if (appStatusTypes.auth === appStatus) {
     return <AuthNavigator />;
-  }
-  if (appStatusTypes.market === appStatus) {
-    return <MarketingNavigator />;
   }
   return <HomeNavigator />;
 }, [appStatus, isNetwork]);

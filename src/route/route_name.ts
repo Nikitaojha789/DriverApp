@@ -14,4 +14,11 @@ export const routeNames = {
 OrderScreen:"Order's",
 EarningScreen:'Earnings',
 TrackOrder:'TrackOrder',
+OrderDelivered:'OrderDelivered',
+OrderDetails:'OrderDetails',
+ProfileScreen:'ProfileScreen',
+EditProfile:'EditProfile',
+VehicalInfo:'VehicalInfo',
+PaymentMethod:'PaymentMethod',
+Documents:'Documents',
 }as const;

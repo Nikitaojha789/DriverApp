@@ -4,14 +4,19 @@ import {colors} from '../constant/color';
 import {AppText} from './AppHeading';
 import {Row} from './Row';
 
-export const Divider = ({isLight = false}) => {
+interface dividerProps {
+  bgColor?:string,
+  isLight:boolean,
+}
+
+export const Divider = ({isLight = false,bgColor}:dividerProps) => {
   return (
     <View
       style={{
         width: '100%',
         height: 1,
         backgroundColor: isLight
-          ? colors.activityPlaceholder
+          ? bgColor
           : colors.secondary,
       }}
     />

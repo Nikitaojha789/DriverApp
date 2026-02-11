@@ -24,15 +24,18 @@ type TrackScreenHeaderProps = {
   statusStyle?: StatusStyle
   showShare?: boolean
   onSharePress?: () => void
+  paddingHorizontal?: number
 }
 
 
 
+
 export const TrackScreenHeader = ({
-  status = 'At Restaurant',
+  status,
   statusStyle = {},
   showShare = true,
   onSharePress,
+  paddingHorizontal = w(6),
 }:TrackScreenHeaderProps) => {
   return (
     <View style={styles.header}>
@@ -66,9 +69,14 @@ export const TrackScreenHeader = ({
 
       {showShare && (
         <TouchableOpacity
-          style={[styles.shareBadge, statusStyle.share]}
-          onPress={onSharePress}
-        >
+  style={[
+    styles.shareBadge,
+    statusStyle.share,
+    { paddingHorizontal: paddingHorizontal },
+  ]}
+  onPress={onSharePress}
+>
+
           <ShareIcon />
         </TouchableOpacity>
       )}

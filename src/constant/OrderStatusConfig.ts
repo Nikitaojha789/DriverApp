@@ -24,4 +24,21 @@ export const ORDER_STATUS_UI = {
     backgroundColor: "#30D15816",
     textColor: "#30D158",
   },
+  [OrderStatus.COMPLETED]: {
+    label: "Completed",
+    backgroundColor: "#2ecc701a",
+    textColor: "#2ECC71",
+  },
+
+  [OrderStatus.IN_PROGRESS]: {
+    label: "In Progress",
+    backgroundColor: "#5d2e921b",
+    textColor: "#5C2E92",
+  },
+
+  [OrderStatus.CANCELLED]: {
+    label: "Cancelled ",
+    backgroundColor: "#d32f2f20",
+    textColor: "#D32F2F",
+  },
 };

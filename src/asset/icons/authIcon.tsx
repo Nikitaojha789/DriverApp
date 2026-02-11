@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Svg, { ClipPath, Defs, G, Image, Path, Pattern, Rect, Use } from 'react-native-svg';
+import { number, string } from 'yup';
 
 
 export const DrivingIcon = (props:any) => (
@@ -129,23 +130,29 @@ export const CardIcon = (props:any) => (
   </Svg>
 )
 
-export const CameraIcon = (props:any) => (
+export const CameraIcon = ({size = 24,color='#8E8E8E',strokeColor='#8E8E8E',...props}:{
+  size?: number,
+  xmlns?:string,
+  color?:string,
+  strokeColor?:string,
+}) => (
   <Svg
     xmlns="http://www.w3.org/2000/svg"
-    width={24}
-    height={24}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
     fill="none"
     {...props}
   >
     <Path
-      stroke="#8E8E8E"
+      stroke={color}
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={1.6}
       d="M13.994 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18 7h1.996a2 2 0 0 1 2 1.999v8.998a2 2 0 0 1-2 2H3.999a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.758-1.047l.49-.904A2 2 0 0 1 10.001 4h3.992Z"
     />
     <Path
-      stroke="#8E8E8E"
+      stroke={strokeColor}
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={1.6}
@@ -342,5 +349,56 @@ export const UnFillCheckboxIcon = (props:any) => (
     {...props}
   >
     <Rect width={23} height={23} x={0.5} y={0.5} stroke="#8E8E8E" rx={3.5} />
+  </Svg>
+)
+export const UserIcon = (props:any) => (
+  <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={24}
+    height={24}
+    fill="none"
+    {...props}
+  >
+    <Path
+      stroke="#5C2E92"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.999}
+      d="M18.991 20.99v-2a3.998 3.998 0 0 0-3.998-3.998H8.996a3.998 3.998 0 0 0-3.998 3.998v2M11.994 10.994a3.998 3.998 0 1 0 0-7.996 3.998 3.998 0 0 0 0 7.996Z"
+    />
+  </Svg>
+)
+export const WalletIcon = (props:any) => (
+  <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={24}
+    height={24}
+    fill="none"
+    {...props}
+  >
+    <Path
+      stroke="#5C2E92"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.999}
+      d="M19.99 4.998H3.999a2 2 0 0 0-1.999 2v9.994a2 2 0 0 0 2 2H19.99a2 2 0 0 0 1.999-2V6.997a2 2 0 0 0-2-1.999ZM1.999 9.996h19.99"
+    />
+  </Svg>
+)
+export const BellIcon = (props:any) => (
+  <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={24}
+    height={24}
+    fill="none"
+    {...props}
+  >
+    <Path
+      stroke="#5C2E92"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.999}
+      d="M10.263 20.99a1.999 1.999 0 0 0 3.463 0M3.26 15.32a1 1 0 0 0 .738 1.673h15.993a1 1 0 0 0 .74-1.672c-1.33-1.37-2.74-2.827-2.74-7.324a5.997 5.997 0 0 0-11.994 0c0 4.497-1.41 5.953-2.736 7.323Z"
+    />
   </Svg>
 )

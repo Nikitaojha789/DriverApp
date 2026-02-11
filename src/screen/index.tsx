@@ -10,6 +10,13 @@ import Home from './home/Home';
 import OrderScreen from './home/OrderScreen';
 import EarningScreen from './home/EarningScreen';
 import TrackOrder from './home/TrackOrder';
+import OrderDelivered from './home/OrderDelivered';
+import OrderDetails from './home/OrderDetails';
+import ProfileScreen from './home/ProfileScreen';
+import EditProfile from './home/EditProfile';
+import VehicalInfo from './home/VehicalInfo';
+import PaymentMethod from './home/PaymentMethod';
+import Documents from './home/Documents';
 export {
   Splash,
   Marketing,
@@ -22,4 +29,11 @@ export {
   OrderScreen,
   EarningScreen,
   TrackOrder,
+  OrderDelivered,
+  OrderDetails,
+  ProfileScreen,
+  EditProfile,
+  VehicalInfo,
+  PaymentMethod,
+  Documents,
 };

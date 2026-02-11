@@ -15,7 +15,7 @@ export class AppNavigation {
   };
   static navigateToLoginScreen = () => {
     if (navigationRef.isReady()) {
-      navigationRef?.navigate('LoginScreen');
+      navigationRef?.navigate('login');
     }
   };
   static navigateToOtp = (params: {phone: string}) => {

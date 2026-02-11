@@ -1,6 +1,6 @@
 import React, {ReactNode} from 'react';
 import {View, StyleSheet} from 'react-native';
-import {h, spacer} from '../../constant/dimension';
+import {h, spacer, w} from '../../constant/dimension';
 import {ScreenHeading} from '../AppHeading';
 import {BackButton} from '../button/BackButton';
 import {Spacer} from '../Spacer';
@@ -10,6 +10,7 @@ interface appHeaderProps {
   hideBack?: boolean;
   backPress?: Function;
   rightElement?: ReactNode;
+  size?:number;
 }
 
 export const AppHeader = ({
@@ -17,11 +18,12 @@ export const AppHeader = ({
   hideBack = false,
   backPress,
   rightElement,
+  size,
 }: appHeaderProps) => {
   return (
     <View style={[styles.container]}>
       <Spacer size={h(0.6)} />
-      <ScreenHeading title={title} />
+      <ScreenHeading title={title} center={false} headingSize={size}/>
 
       {!hideBack ? (
         <View
@@ -53,6 +55,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacer,
     // marginTop: h(1),
     justifyContent: 'center',
-    alignItems: 'center',
+    // alignItems: 'center',
+    // marginLeft:w(2)
   },
 });

@@ -57,7 +57,7 @@ export const ShadowWrapper = ({ children, style, isShadow = true }:ShadowWrapper
 const styles = StyleSheet.create({
   shadowContainer: {
     marginBottom: h(2),
-    marginHorizontal: w(2),
+    marginHorizontal: w(1),
     marginTop: h(1),
     borderRadius: 16,
     backgroundColor: colors.white,

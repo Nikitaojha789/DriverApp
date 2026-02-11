@@ -35,6 +35,7 @@ interface appHeadingProps {
   fontFamily?: string;
   center?: boolean;
   primary?: boolean;
+  headingSize?:number;
 }
 
 export const AppHeading = ({
@@ -66,7 +67,7 @@ export const AppHeading = ({
 
 export const AppText = ({
   title,
-  color = colors.InactiveButtonColor,
+  color = colors.textColor,
   fontSize = 14,
   style,
   isCapitalize,
@@ -124,6 +125,7 @@ export const ScreenHeading = ({
   textTransform = 'none',
   numberOfLines,
   onPress,
+  headingSize = fontSize.veryLarge,
 }: appHeadingProps) => {
   return (
     <Text
@@ -131,6 +133,7 @@ export const ScreenHeading = ({
       style={{
         textTransform: isCapitalize ? 'capitalize' : textTransform,
         ...screenHeadingStyle,
+        fontSize:headingSize
       }}
       numberOfLines={numberOfLines}>
       {title}

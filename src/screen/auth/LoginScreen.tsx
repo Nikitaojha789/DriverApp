@@ -21,83 +21,91 @@ const LoginScreen = () => {
   const [phone, setPhone] = useState('');
   const [showCountryModal, setShowCountryModal] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
-const navigation = useNavigation<any>();
+  const navigation = useNavigation<any>();
   const [selectedCountry, setSelectedCountry] = useState({
-    name: 'South Africa',
-    code: 'ZA',
-    dialCode: '+27',
     flag: '🇿🇦',
+    code:'91'
   });
 
-const onContinuePress = () => {
-  navigation.navigate(routeNames.OtpScreen);
-  console.log("Button pressed!!");
-};
+  const onContinuePress = () => {
+    navigation.navigate(routeNames.OtpScreen);
+    console.log("Button pressed!!");
+  };
 
   return (
-    <SafeAreaView>
-    <ScrollView
-            contentContainerStyle={styles.scroll}
-            keyboardShouldPersistTaps="handled"
-            showsVerticalScrollIndicator={false}>
-    <AppContainer>
-        <View>
-          <View style={{ alignItems: 'center' }}>
-            <AppIcon />
-          </View>
-          <View style={styles.header}>
-            <View style={{ flexDirection: 'row' }}>
-              <AppText title='Welcome Back!' color={colors.darkPurple} fontFamily={fonts.semiBold} fontSize={fontSize.xxlarge} style={{ lineHeight: fontSize.xxlarge + h(2.9) }} />
-              <ShakeIcon />
+    <SafeAreaView style={{ flex: 1, backgroundColor: colors.white }}>
+      <ScrollView
+        contentContainerStyle={styles.scroll}
+        keyboardShouldPersistTaps="handled"
+        showsVerticalScrollIndicator={false}>
+        <AppContainer>
+          <View>
+            <View style={{ alignItems: 'center' }}>
+              <AppIcon />
             </View>
-            <AppText title='Sign in to continue' color={colors.textColor} fontFamily={fonts.regular} fontSize={fontSize.default} style={{
-              // marginTop: h(0.5),
-              lineHeight: fontSize.default + 3,
-              marginBottom: h(3)
-            }} />
-          </View>
-          <View>
-            <AppInput
-              placeholder="Enter Number"
-              keyboardType="phone-pad"
-              countryCode={selectedCountry.flag}
-              countryCodePress={() => setShowCountryModal(true)}
-              value={phone}
-              onChangeText={setPhone}
-            />
-          </View>
-          <View style={{ flexDirection: 'row', marginTop: h(2), gap: h(1), alignItems: 'center' }}>
-            <AppCheckboxButton
-              isSelected={rememberMe}
-              onPress={() => setRememberMe(!rememberMe)}
-              color={colors.purple}
-            />
+            <View style={styles.header}>
+              <View style={{ flexDirection: 'row' }}>
+                <AppText title='Welcome Back!' color={colors.darkPurple} fontFamily={fonts.semiBold} fontSize={fontSize.xxlarge} style={{ lineHeight: fontSize.xxlarge + h(2.9) }} />
+                <ShakeIcon />
+              </View>
+              <AppText title='Sign in to continue' color={colors.textColor} fontFamily={fonts.regular} fontSize={fontSize.default} style={{
+                // marginTop: h(0.5),
+                lineHeight: fontSize.default + 3,
+                marginBottom: h(3)
+              }} />
+            </View>
+            <View>
+              <AppInput
+                placeholder="Enter Number"
+                keyboardType="phone-pad"
+                countryCode={selectedCountry.flag}
+                // countryCodePress={() => setShowCountryModal(true)}
+                value={phone}
+                onChangeText={setPhone}   
+                cursorColor={colors.black}
+                isBorder
+              />
+            </View>
+            <View style={{ flexDirection: 'row', marginTop: h(2), gap: h(1), alignItems: 'center' }}>
+              <AppCheckboxButton
+                isSelected={rememberMe}
+                onPress={() => setRememberMe(!rememberMe)}
+                color={colors.purple}
+              />
 
-            <AppText
-              title="Remember my login for faster sign-in"
-              color={colors.textColor}
-              onPress={() => setRememberMe(!rememberMe)}
-            />
-          </View>
-          <Spacer size={16} />
-          <View>
-            <AppButton title='Continue' bgColor='#5C2E92' textColor={colors.white} onPress={onContinuePress} />
-          </View>
+              <AppText
+                title="Remember my login for faster sign-in"
+                color={colors.textColor}
+                onPress={() => setRememberMe(!rememberMe)}
+              />
+            </View>
+            <Spacer size={16} />
+            <View>
+              <AppButton title='Continue' bgColor='#5C2E92' textColor={colors.white} onPress={onContinuePress} />
+            </View>
 
-          <Spacer size={80} />
-                      <View style={{marginTop:h(12)}}>
-                        <AppText
-                          title={`By continuing, you agree to our 
-Terms of Service  Privacy Policy  Content Policy`}
-                          color={colors.textColor}
-                          fontSize={fontSize.normal}
-                          fontFamily={fonts.regular}
-                          center={true}
-                        />
-                      </View>
-        </View>
-     
-    </AppContainer> </ScrollView></SafeAreaView>
+            <Spacer size={80} />
+            <View style={{ marginTop: h(12),alignItems:'center' }}>
+              <AppText
+                title={"By continuing, you agree to our"}
+                color={colors.textColor}
+                fontSize={fontSize.normal}
+                fontFamily={fonts.regular}
+                center={true}
+                style={{lineHeight:fontSize.normal+2}}
+              />
+              <AppText
+                title={'Terms of Service  Privacy Policy  Content Polic'}
+                color={colors.textColor}
+                fontSize={fontSize.normal}
+                fontFamily={fonts.regular}
+                center={true}
+              />
+            </View>
+          </View>
+        </AppContainer>
+      </ScrollView>
+    </SafeAreaView>
   )
 }
 

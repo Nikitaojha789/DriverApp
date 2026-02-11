@@ -25,6 +25,7 @@ export type appButtonProps = {
   fontSize?: number;
   borderColor?: string;
   borderedTextColor?: string;
+  titleColor?:string
 };
 
 // Component for a customizable button with an optional activity indicator
@@ -44,6 +45,7 @@ export const AppButton = memo(
     borderColor = colors.white,
     borderedTextColor = colors.white,
     textColor = colors.white,
+    titleColor = colors.white,
   }: appButtonProps) => {
     return (
       <TouchableButton
@@ -74,7 +76,7 @@ export const AppButton = memo(
             />
           </>
         ) : (
-          <ButtonText primary={primary} title={title} color={disabled ?  colors.InactiveButtonColor:colors.white} />
+          <ButtonText primary={primary} title={title} color={disabled ?  colors.InactiveButtonColor: titleColor} />
         )}
       </TouchableButton>
     );

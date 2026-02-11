@@ -11,10 +11,22 @@ import { ORDER_STATUS_UI } from '../../constant/OrderStatusConfig';
 
 const TrackOrderScreen = () => {
   const [orderStatus, setOrderStatus] = React.useState<OrderStatus>(
-    OrderStatus.PROOF_OF_DELIVERY
+    OrderStatus.PICKUP
   );
 
   const statusUI = ORDER_STATUS_UI[orderStatus];
+const goToAtRestaurant = () => {
+  setOrderStatus(OrderStatus.AT_RESTAURANT);
+};
+
+const goToOnTheWay = () => {
+  setOrderStatus(OrderStatus.ON_THE_WAY);
+};
+
+const goToProofOfDelivery = () => {
+  setOrderStatus(OrderStatus.PROOF_OF_DELIVERY);
+};
+
 
   return (
     <SafeAreaView style={styles.container}>
@@ -37,7 +49,13 @@ const TrackOrderScreen = () => {
         resizeMode="cover"
       />
 
-      <BottomSheetRenderer status={orderStatus} />
+    <BottomSheetRenderer
+  status={orderStatus}
+  onPickupComplete={goToAtRestaurant}
+  onAtRestaurantComplete={goToOnTheWay}
+  onOnTheWayComplete={goToProofOfDelivery}
+/>
+
     </SafeAreaView>
   );
 };

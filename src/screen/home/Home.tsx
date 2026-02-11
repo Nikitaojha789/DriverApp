@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { CorrectIconSvg, DeliveryIcon, EarningTabIcon, LocationIcon, ProfileIcon, RatingIcon } from '../../asset/icons/HomeIcon'
 import { colors } from '../../constant/color'
@@ -12,8 +12,16 @@ import { OnlineIcon } from '../../components/Home/OnlineIcon'
 import { StatCards } from '../../components/Home/StatCards'
 import AppStatCards from '../../components/Home/AppStatCards'
 import { Compliance } from '../../components/Profile/Compliance'
+import { useNavigation } from '@react-navigation/native'
+import { routeNames } from '../../route/route_name'
 
 const Home = () => {
+  const navigation = useNavigation<any>();
+  
+  const onProfilePress = () => {
+    navigation.navigate(routeNames.ProfileScreen);
+    console.log("Button pressed!!");
+  };
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: colors.white }}>
       <AppContainer>
@@ -39,7 +47,9 @@ const Home = () => {
                 style={{ lineHeight: fontSize.normal + h(1) }}
               />
             </View>
+            <TouchableOpacity onPress={onProfilePress}>
             <ProfileIcon />
+            </TouchableOpacity>
           </View>
           <View>
             <OnlineIcon />

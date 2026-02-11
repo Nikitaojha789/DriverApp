@@ -1,25 +1,30 @@
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
 import { AppText } from '../AppHeading'
-import { DestinationIcon, MessageIcon, TelephoneIcon } from '../../asset/icons/HomeIcon'
 import { h, w } from '../../constant/dimension'
 import { colors } from '../../constant/color'
 import { fontSize } from '../../asset/style/commonStyle'
 import { fonts } from '../../asset';
-import { VerifiedIcon } from '../../asset/icons/authIcon'
 import { OtpInput } from '../OtpInput'
 import { ShadowWrapper } from '../ShadowWrapper'
 import { AppBtn } from '../button/AppBtn'
 import { AppButton } from '../AppButton'
+import { useNavigation } from '@react-navigation/native'
+import { routeNames } from '../../route/route_name'
 
 interface ProofOfDeliveryProps {
     onPress?: () => void,
 }
 
 export const ProofOfDelivery = ({ onPress }: ProofOfDeliveryProps) => {
-const [otp, setOtp] = useState('');
-const [isOtpComplete, setIsOtpComplete] = useState(false);
+    const [otp, setOtp] = useState('');
+    const [isOtpComplete, setIsOtpComplete] = useState(false);
+const navigation = useNavigation<any>();
 
+const onButtonPress = () => {
+  navigation.navigate(routeNames.OrderDelivered);
+  console.log("Button pressed!!");
+};
 
     return (
         <View style={styles.bottomSheet}>
@@ -36,21 +41,21 @@ const [isOtpComplete, setIsOtpComplete] = useState(false);
                     <AppText title='Proof of Delivery' fontFamily={fonts.semiBold} fontSize={fontSize.largeMedium} />
                     <AppText title='OTP Verification' fontFamily={fonts.medium} fontSize={fontSize.default} />
                     <View style={{ marginBottom: h(2) }}>
-                        <OtpInput  onOtpChange={(value, complete) => {
-    setOtp(value);
-    setIsOtpComplete(complete);
-  }} />
+                        <OtpInput onOtpChange={(value, complete) => {
+                            setOtp(value);
+                            setIsOtpComplete(complete);
+                        }} />
                     </View>
                     <View style={styles.btnContainer}>
-                    <AppBtn title='Confirm otp' color={colors.white} backgroundColor={colors.purple} fontfamily={fonts.regular} fontsize={fontSize.normal} width={120} borderRadius={12}/>
-                    <AppBtn title='Resent OTP' color={'#1E88E5'} variant='text' fontfamily={fonts.regular} fontsize={fontSize.normal} width={110}/>
+                        <AppBtn title='Confirm otp' color={colors.white} backgroundColor={colors.purple} fontfamily={fonts.regular} fontsize={fontSize.normal} width={120} borderRadius={12} />
+                        <AppBtn title='Resent OTP' color={'#1E88E5'} variant='text' fontfamily={fonts.regular} fontsize={fontSize.normal} width={110} />
+                    </View>
                 </View>
-                </View>
-                </ShadowWrapper>
-                <View style={{marginBottom:10}}>
-            <AppButton  onPress={onPress} bgColor={colors.purple}
-                 title='Mark as Arrived' disabled={!isOtpComplete} />
-                    </View> 
+            </ShadowWrapper>
+            <View style={{ marginBottom: 10 }}>
+                <AppButton onPress={onButtonPress} bgColor={colors.purple}
+                    title='Mark as Arrived' disabled={!isOtpComplete} />
+            </View>
         </View>
     )
 }
@@ -81,10 +86,10 @@ const styles = StyleSheet.create({
         margin: 16,
         backgroundColor: colors.white,
     },
-    btnContainer:{
-        flexDirection:'row',
-        justifyContent:'space-between',
-        alignItems:'center',
+    btnContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
     },
     primaryBtn: {
         flex: 1,

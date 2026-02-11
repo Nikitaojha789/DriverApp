@@ -1,26 +1,34 @@
-import { StyleSheet, Text, View } from 'react-native';
-import React, { useEffect, useRef } from 'react';
+import { StyleSheet, View } from 'react-native';
+import React, { useEffect } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { setAppStatus } from '../../store/action';
 import { appStatusTypes } from '../../constant/type';
 import { SplashSvg } from '../../asset/icons/appIcon';
 
 const Splash = () => {
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      setAppStatus(appStatusTypes.auth);
-    }, 4000);
+    const checkAppFlow = async () => {
+      try {
+        const hasSeenMarket = await AsyncStorage.getItem('hasSeenMarket');
 
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
+        setTimeout(() => {
+          if (hasSeenMarket === 'true') {
+            setAppStatus(appStatusTypes.auth);
+          } else {
+            setAppStatus(appStatusTypes.market);
+          }
+        }, 2500);
+      } catch (e) {
+        setAppStatus(appStatusTypes.market);
       }
     };
+
+    checkAppFlow();
   }, []);
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={styles.container}>
       <SplashSvg />
     </View>
   );
@@ -28,4 +36,10 @@ const Splash = () => {
 
 export default Splash;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});

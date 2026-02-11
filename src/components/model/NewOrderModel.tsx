@@ -3,7 +3,7 @@ import React from 'react'
 import { AppText } from '../AppHeading'
 import { colors } from '../../constant/color'
 import { h, w } from '../../constant/dimension'
-import { DeliveryIcon, LocationIcon, PickupLocationIcon } from '../../asset/icons/HomeIcon'
+import { DeliveryIcon, DistanceIcon, LocationIcon, PickupLocationIcon } from '../../asset/icons/HomeIcon'
 import { fonts } from '../../asset'
 import { fontSize } from '../../asset/style/commonStyle'
 import { UnderReviewIcon } from '../../asset/icons/authIcon'
@@ -11,6 +11,8 @@ import { StatCards } from '../Home/StatCards'
 import { AppNavigation } from '../../route/app_navigation'
 import { useNavigation } from '@react-navigation/native'
 import { routeNames } from '../../route/route_name'
+import OrdereInfoCard from '../Home/OrderInfoCard'
+import { Spacer } from '../Spacer'
 
 interface NewOrderModelProps {
     visible: boolean,
@@ -22,8 +24,8 @@ const NewOrderModel = ({ visible, onClose }: NewOrderModelProps) => {
     const navigation = useNavigation<any>();
 
     const OnAccept = () => {
-  navigation.navigate(routeNames.TrackOrder);
-}
+        navigation.navigate(routeNames.TrackOrder);
+    }
 
     return (
         <Modal
@@ -44,12 +46,6 @@ const NewOrderModel = ({ visible, onClose }: NewOrderModelProps) => {
                                 <AppText title="Order #DL2026-001" color={colors.white} />
                             </View>
                         </View>
-
-                        <TouchableOpacity>
-                            <View style={styles.closeCircle}>
-                                <AppText title="✕" color={colors.white} />
-                            </View>
-                        </TouchableOpacity>
                     </View>
 
                     <View style={styles.bottomContainer}>
@@ -59,33 +55,52 @@ const NewOrderModel = ({ visible, onClose }: NewOrderModelProps) => {
                                 fontFamily={fonts.medium} fontSize={fontSize.default}
                             />
                         </View>
-                        <View style={{ marginVertical: h(2),gap:h(1)}}>
-                                           <StatCards
-                                             icon={<PickupLocationIcon name="cube-outline"/>}
-                                             value="Pickup Location"
-                                             label="Hollywoodbets"
-                                             labelStyle={{fontFamily:fonts.medium,fontSize:fontSize.normal,color:colors.textColor}}
-                                             iconBgColor="#1e88e52a"
-                                             height={h(4)}
-                                             width={w(8.8)}
-                                             valueStyle={{fontFamily:fonts.semiBold,fontSize:fontSize.small,color:colors.InactiveButtonColor}}
-                                             isRow={false}
-                                             isCard={false}
-                                           />
-                                           
-                                           <StatCards
-                                             icon={<LocationIcon name="cube-outline" color={"#2ECC71"}/>}
-                                             label="456 Customer St, Downtown"
-                                             labelStyle={{fontFamily:fonts.medium,fontSize:fontSize.normal,color:colors.textColor}}
-                                              valueStyle={{fontFamily:fonts.semiBold,fontSize:fontSize.small,color:colors.InactiveButtonColor}}
-                                             value="Delivery Location"
-                                             iconBgColor="#2ecc702c"
-                                             height={h(4)}
-                                             width={w(8.8)}
-                                             isRow={false}
-                                             isCard={false}
-                                           />
-                                           </View>
+                        <View style={{ marginVertical: h(0.9) }}>
+                            <StatCards
+                                icon={<PickupLocationIcon name="cube-outline" />}
+                                value="Pickup Location"
+                                label="Hollywoodbets"
+                                labelStyle={{ fontFamily: fonts.medium, fontSize: fontSize.normal, color: colors.textColor }}
+                                iconBgColor="#1e88e52a"
+                                height={h(4)}
+                                width={w(8.8)}
+                                valueStyle={{ fontFamily: fonts.semiBold, fontSize: fontSize.small, color: colors.InactiveButtonColor }}
+                                isRow={false}
+                                isCard={false}
+                            />
+
+                            <StatCards
+                                icon={<LocationIcon name="cube-outline" color={"#2ECC71"} />}
+                                label="456 Customer St, Downtown"
+                                labelStyle={{ fontFamily: fonts.medium, fontSize: fontSize.normal, color: colors.textColor }}
+                                valueStyle={{ fontFamily: fonts.semiBold, fontSize: fontSize.small, color: colors.InactiveButtonColor }}
+                                value="Delivery Location"
+                                iconBgColor="#2ecc702c"
+                                height={h(4)}
+                                width={w(8.8)}
+                                isRow={false}
+                                isCard={false}
+                            />
+                        </View>
+                        <View style={{flexDirection:'row',gap:w(2)}}>
+                        <OrdereInfoCard
+                            distance="3.5 km"
+                            label="Distance"
+                            icon={<LocationIcon width={20} height={20} color={'#1E88E5'}/>}
+                        />
+                        <OrdereInfoCard
+                            distance="3.5 km"
+                            label="Distance"
+                            icon={<LocationIcon width={20} height={20} color={'#1E88E5'}/>}
+                        />
+                        <OrdereInfoCard
+                            distance="3.5 km"
+                            label="Distance"
+                            icon={<LocationIcon width={20} height={20} color={'#1E88E5'}/>}
+                        />
+                        </View>
+                        <Spacer/>
+
                         <View style={styles.button}>
                             <TouchableOpacity onPress={onClose} style={styles.DeclineBtn}>
                                 <AppText title="Decline" color={colors.DarkRed} />

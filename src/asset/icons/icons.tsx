@@ -1577,17 +1577,19 @@ export const ChevronRight = ({ size = 24, color = colors.textColor }) => (
     />
   </Svg>
 );
-export const Logout = ({ size = 24, color = 'white' }) => (
+export const Logout = ({ size = 24, color = 'white' }:{size?: number,
+  xmlns?:string,
+  color?:string,}) => (
   <Svg
-    width={20}
-    height={20}
+    width={size}
+    height={size}
     viewBox="0 0 20 20"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
     <Path
       d="M14.167 13.333L17.5 10m0 0l-3.333-3.334M17.5 10H5.833m5 3.333v.833a2.5 2.5 0 01-2.5 2.5H5a2.5 2.5 0 01-2.5-2.5V5.833a2.5 2.5 0 012.5-2.5h3.333a2.5 2.5 0 012.5 2.5v.833"
-      stroke="#F14141"
+      stroke={color}
       strokeWidth={1.5}
       strokeLinecap="round"
       strokeLinejoin="round"

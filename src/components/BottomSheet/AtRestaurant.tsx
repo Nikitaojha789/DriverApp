@@ -46,7 +46,7 @@ const AtRestaurant = ({onPress}:OrderPickUpProps) => {
                     <AppText style={styles.outlineText} title='Report an Issue' />
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.primaryBtn}>
+                <TouchableOpacity style={styles.primaryBtn} onPress={onPress}>
                     <AppText style={styles.primaryText} title='Mark as Pichup' />
                 </TouchableOpacity>
             </View>

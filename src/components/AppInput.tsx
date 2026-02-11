@@ -208,8 +208,8 @@ export const AppInput = memo(
               height: isDescription ? maxHeight : 45,
               borderRadius: 8,
               overflow: 'hidden',
-              borderWidth: error ? 1 : isBorder ? 0.5 : 0,
-              borderColor: colors.borderColor,
+              borderWidth: error ? 1 : isBorder ? 0.8 : 0,
+              borderColor: '#E6DDF1',
               backgroundColor: backgroundColor,
                ...style,
             }}>
@@ -217,11 +217,12 @@ export const AppInput = memo(
               <TouchableButton
                 onPress={countryCodePress}
                 style={{
-                  minWidth: '20%',
+                  minWidth: '10%',
                   justifyContent: 'center',
                   alignItems: 'center',
                   paddingHorizontal: spacer,
                   backgroundColor: 'transparent',
+                  
                 }}>
                 <AppTxt title={countryCode} style={countryCodeStyle} />
               </TouchableButton>
@@ -242,7 +243,7 @@ export const AppInput = memo(
                 flex: 1,
                 paddingHorizontal: spacer,
                 flexDirection: 'row',
-                alignItems: 'center',
+                // alignItems: 'center',
                 justifyContent: 'center',
               }}>
               {leftIcon ? <View>{leftIcon}</View> : null}

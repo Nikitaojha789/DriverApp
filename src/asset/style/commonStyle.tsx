@@ -77,9 +77,10 @@ export const fontSize = {
 };
 
 export const screenHeadingStyle = {
-  fontSize: fontSize.medium,
-  color: colors.white,
+  fontSize: fontSize.veryLarge,
+  color: colors.black,
   fontFamily: fonts.semiBold,
+   marginLeft:w(4)
 };
 
 export const MarketingTitleStyle = {

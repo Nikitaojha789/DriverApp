@@ -3,6 +3,7 @@ import {
   StyleSheet,
   View,
   ScrollView,
+  TouchableOpacity,
 } from 'react-native';
 
 import { AppContainer } from '../../components/AppContainer';
@@ -17,6 +18,8 @@ import { Spacer } from '../../components/Spacer';
 import { AppButton } from '../../components/AppButton';
 import { TouchableButton } from '../../components/button/TouchableButton';
 import { h, w } from '../../constant/dimension';
+import { useNavigation } from '@react-navigation/native';
+import { routeNames } from '../../route/route_name';
 
 const Login = () => {
   const [mobileNumber, setMobileNumber] = useState('');
@@ -28,7 +31,12 @@ const Login = () => {
     mobileNumber: '',
   });
   const [loading, setLoading] = useState(false);
+  const navigation = useNavigation<any>();
 
+  const onContinuePress = () => {
+    navigation.navigate(routeNames.LoginScreen);
+    console.log("Button pressed!!");
+  };
   const validateForm = () => {
     const newErrors = {
       email: '',
@@ -205,9 +213,9 @@ const Login = () => {
                 style={styles.prompt}
                 center
               />
-              <TouchableButton onPress={() =>   AppNavigation.navigateToLoginScreen()}>
+              <TouchableOpacity onPress={onContinuePress}>
                 <AppTxt title={'Sign in'} style={styles.cta} center />
-              </TouchableButton>
+              </TouchableOpacity>
             </View>
             <Spacer size={50} />
             <View style={{marginTop:40,}}>

@@ -10,7 +10,7 @@ export const h = (value: number): number => {
   return height * (value / 100);
 };
 
-export const spacer: number = 15;
+export const spacer: number = 10;
 
 export const getShadow = (elevation = 2) => {
   return {
